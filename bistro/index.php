@@ -2,8 +2,8 @@
 
 require_once __DIR__."/Source/Classes/Pessoa";
 require_once __DIR__."/Source/Classes/Endereço";
-require_once __DIR__."/Source/Classes/";
-require_once __DIR__."/Source/Classes/Pessoa";
+require_once __DIR__."/Source/Classes/Funcionario";
+require_once __DIR__."/Source/Classes/Cliente";
 
 $nome = addslashes(INPUT_POST, ['nome']);
 $cpf = addslashes(INPUT_POST,['cpf']);
