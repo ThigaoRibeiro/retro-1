@@ -21,6 +21,6 @@ $matricula = addslashes(INPUT_POST,['matricula']);
 $funcao = addslashes(INPUT_POST,['funcao']);
 
 
-
+require_once __DIR__."/CRUD/insert/"
 
 ?>
