@@ -18,10 +18,99 @@ class Pessoa
     protected $endereco;
 
 
+
     protected $admissao;
     protected $matricula;
     protected $funcao;
 
+    /**
+     * Pessoa constructor.
+     * @param $cpf
+     * @param $id_cliente
+     * @param $nome
+     * @param $telefone
+     * @param Endereco $endereco
+     * @param $admissao
+     * @param $matricula
+     * @param $funcao
+     */
+    public function __construct($cpf, $id_cliente, $nome, $telefone, Endereco $endereco, $admissao, $matricula, $funcao)
+    {
+        $this->cpf = $cpf;
+        $this->id_cliente = $id_cliente;
+        $this->nome = $nome;
+        $this->telefone = $telefone;
+        $this->endereco = $endereco;
+        $this->admissao = $admissao;
+        $this->matricula = $matricula;
+        $this->funcao = $funcao;
+    }
 
-    
+    /**
+     * @return mixed
+     */
+    public function getCpf()
+    {
+        return $this->cpf;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdCliente()
+    {
+        return $this->id_cliente;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTelefone()
+    {
+        return $this->telefone;
+    }
+
+    /**
+     * @return Endereco
+     */
+    public function getEndereco(): Endereco
+    {
+        return $this->endereco;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdmissao()
+    {
+        return $this->admissao;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMatricula()
+    {
+        return $this->matricula;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFuncao()
+    {
+        return $this->funcao;
+    }
+
+
 }
+
+
