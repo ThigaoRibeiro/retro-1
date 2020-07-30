@@ -1,9 +1,9 @@
 <?php
 
-require_once __DIR__."/Source/Classes/Pessoa";
-require_once __DIR__."/Source/Classes/Endereço";
-require_once __DIR__."/Source/Classes/Funcionario";
-require_once __DIR__."/Source/Classes/Cliente";
+require __DIR__."/Source/Classes/Pessoa";
+require __DIR__."/Source/Classes/Endereço";
+require __DIR__."/Source/Classes/Funcionario";
+require __DIR__."/Source/Classes/Cliente";
 
 $cpf = addslashes(INPUT_POST,['cpf']);
 $nome = addslashes(INPUT_POST, ['nome']);
@@ -21,6 +21,6 @@ $matricula = addslashes(INPUT_POST,['matricula']);
 $funcao = addslashes(INPUT_POST,['funcao']);
 
 
-require_once __DIR__."/CRUD/insert/"
+require __DIR__."/CRUD/insert/"
 
 ?>
