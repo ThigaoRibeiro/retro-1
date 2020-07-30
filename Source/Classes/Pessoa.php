@@ -46,6 +46,16 @@ class Pessoa
         $this->funcao = $funcao;
     }
 
+    public function setEmail ($email)
+    {
+        $this->email = $email;
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     /**
      * @return mixed
      */
@@ -109,8 +119,11 @@ class Pessoa
     {
         return $this->funcao;
     }
-
-
+ 
+    public function getEmail()
+    {
+        return $this->email;
+    }
 }
 
 
