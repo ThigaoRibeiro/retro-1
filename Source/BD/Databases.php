@@ -1,5 +1,5 @@
 <?php
-
+    require "../vendor/autoload.php";
     //--------------------- Conexão com banco de dados
 
     class Banco{
