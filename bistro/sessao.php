@@ -9,8 +9,10 @@
     
     <?php
     session_start();
+    include __DIR__."/Source/Classes/Pessoa";
     $_SESSION ['confirmacao_pedido'] = "Pedido confirmado!";
     $_SESSION ['confirmacao_cadastro'] = "Cadastro efetuado com sucesso!";
+    $_SESSION ['confirmacao_nome'] = $_POST['nome'];
 
        
     
