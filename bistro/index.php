@@ -596,19 +596,7 @@
         </div>
     </div>
     
-    <!-- gallery end -->
-    <div class="Reservation_area">
-        <div class="rev_icon_1 d-none d-md-block">
-            <img src="img/icon/4.png" alt="">
-        </div>
-        <div class="rev_icon_2 d-none d-md-block">
-            <img src="img/icon/5.png" alt="">
-        </div>
-        <div class="rev_icon_3 d-none d-md-block">
-            <img src="img/icon/6.png" alt="">
-        </div>
-        </div>
-        </div>
+    </div>
     </div>
 
     <!-- footer_start  -->
