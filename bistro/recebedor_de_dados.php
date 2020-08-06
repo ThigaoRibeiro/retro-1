@@ -30,6 +30,6 @@ $funcao = addslashes(INPUT_POST,['funcao']);
 //----------------------------------------------CADASTRO DE PRODUTOS-------------------------------------------------
 
 
-
-
+$id_produto = ;
+$valor_produto = ;
 ?>
