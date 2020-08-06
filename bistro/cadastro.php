@@ -237,7 +237,7 @@
 
             
 
-            <form method="POST" action="index1.php">
+            <form method="POST" action="recebedor_de_dados.php">
             <div class="row no-gutters">
                 <div class="col-xl-6 col-lg-6">
                     <div class="map_area">
