@@ -41,7 +41,7 @@
                         <div class="row align-items-center no-gutters">
                             <div class="col-xl-3 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html">
+                                    <a href="index.php">
                                         <img src="img/logo.png" alt="">
                                     </a>
                                 </div>
@@ -50,10 +50,10 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a class="active" href="index.html">Início</a></li>
-                                            <li><a href="menu.html">Cardápio</a></li>
-                                            <li><a href="about.html">Sobre Nós </a></li>
-                                            <li><a href="contact.html">Peça já!</a></li>
+                                            <li><a class="active" href="index.php">Início</a></li>
+                                            <li><a href="menu.php">Cardápio</a></li>
+                                            <li><a href="about.php">Sobre Nós </a></li>
+                                            <li><a href="contact.php">Peça já!</a></li>
                                         </ul>
                                     </nav>
                                 </div>
