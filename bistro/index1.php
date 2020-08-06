@@ -20,6 +20,8 @@ $admissao = addslashes(INPUT_POST,['admissao']);
 $matricula = addslashes(INPUT_POST,['matricula']);
 $funcao = addslashes(INPUT_POST,['funcao']);
 
+$quantidade =
+$produto = 
 
 require __DIR__."/CRUD/insert/"
 

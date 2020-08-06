@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -142,9 +143,6 @@
         
 <h2 class="contact-title">Peça aqui!</h2>
 
-<?php
-echo "Olá Mundo!";
-?>
                       
 
 <!-- ================ FIM DA SESSION PHP ================= -->
