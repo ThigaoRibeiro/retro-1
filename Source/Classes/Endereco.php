@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Source\Classes;
+
 
 
 class Endereco

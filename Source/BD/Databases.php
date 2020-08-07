@@ -1,9 +1,8 @@
 <?php
-    require "../vendor/autoload.php";
-    //--------------------- Conexão com banco de dados
 
+/* CONEXAO 01
     class Banco{
-        private $pdo;
+        public $pdo;
 
         
             //--------------------------------------------CONEXAO COM O BANCO DE DADOS----------------------------------------------
@@ -32,4 +31,31 @@
 
 
 
-  $conn = new Banco("retro_db", "localhost", "yuri", "7q5eb6eb@#");
+  $pdo = new Banco("retro_db", "localhost", "yuri", "7q5eb6eb@#");
+
+ */
+
+ //CONEXAO 02
+
+    try{
+        $pdo = new PDO("mysql:host=localhost;dbname=retro_db",
+            "yuri",
+            "7q5eb6eb@#",
+            [
+                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+                PDO::ATTR_CASE => PDO::CASE_NATURAL
+            ]);
+        $pdo->setAttribute(   PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        //dbname = nome do banco dedados
+        //host = endereço do servidor
+        //username = usuario
+        //senha
+    }catch(PDOException $e){
+        echo "Erro com banco de dados: {$e->getMessage()}";
+
+    }catch(Exception $e){
+        echo "Erro generico: {$e->getMessage()}";
+    }
+
+    
