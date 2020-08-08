@@ -157,7 +157,7 @@
 
                         <!-- ================ INCÍCIO DO FORMULÁRIO DO PEDIDO ================= -->
 
-                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate"> 
+                        <form class="form-contact contact_form" action="recebedor_de_dados.php" method="POST" id="contactForm" novalidate="novalidate"> 
                             <div class="row">
                                 
                                 <div class="col-sm-6">
