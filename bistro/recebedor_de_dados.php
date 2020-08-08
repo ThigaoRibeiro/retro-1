@@ -38,16 +38,16 @@ $message = $_POST['message'];
 //----------------------------------------------AREA DE TESTE E DEBUG-------------------------------------------------
 
 var_dump(
- $cpf .PHP_EOL,
- $nome .PHP_EOL,
- $email .PHP_EOL,
- $telefone .PHP_EOL,
- $rua .PHP_EOL,
- $bairro .PHP_EOL,
- $cidade .PHP_EOL,
- $complemento .PHP_EOL,
- $cep .PHP_EOL,
- $pontoReferencia .PHP_EOL
+ $cpf,
+ $nome,
+ $email,
+ $telefone,
+ $rua,
+ $bairro,
+ $cidade,
+ $complemento,
+ $cep,
+ $pontoReferencia
 );
 
 ?>
