@@ -7,17 +7,18 @@ namespace Source\Classes;
 class Produto
 {
 protected $id_produto;
-protected $valor_produto;
+protected $quantidade;
+protected $message;
 
     /**
      * Produto constructor.
      * @param $id_produto
-     * @param $valor_produto
+     * @param $quantidade
      */
-    public function __construct($id_produto, $valor_produto)
+    public function __construct($id_produto,$quantidade)
     {
         $this->id_produto = $id_produto;
-        $this->valor_produto = $valor_produto;
+        $this->quantidade = $quantidade;
     }
 
 
@@ -29,12 +30,21 @@ protected $valor_produto;
         return $this->id_produto;
     }
 
-    /**
+/**
      * @return mixed
      */
-    public function getValorProduto()
+    public function getquantidade()
     {
-        return $this->valor_produto;
+        return $this->quantidade;
+    }
+
+
+ /**
+     * @return mixed
+     */
+    public function getmessage()
+    {
+        return $this->message;
     }
 
 
