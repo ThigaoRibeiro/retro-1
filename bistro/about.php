@@ -75,31 +75,42 @@
     </header>
     <!-- header-end -->
 
-    <!-- slider_area_start -->
-    <div class="slider_area">
-        <div class="slider_active owl-carousel">
-            
-            <div class="single_slider  d-flex align-items-center slider_bg_2 overlay">
-                <div class="container">
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-xl-9 col-md-9 col-md-12">
-                            <div class="slider_text text-center">
-                                <h3>Ambiente diferenciado
-                                    Experiência gastronômica</h3>
-                                <a href="menu.php" class="boxed-btn3">cardápio</a>
-                            </div>
-                        </div>
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text text-center">
+                        <h3>Sobre Nós</h3>
                     </div>
                 </div>
             </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_1 overlay">
-                <div class="container">
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-xl-9 col-md-9 col-md-12">
-                            <div class="slider_text text-center">
-                                <h3>Ambiente diferenciado
-                                    Experiência gastronômica</h3>
-                                <a href="menu.php" class="boxed-btn3">cardápio</a>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="main_about_wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <h3>Ambiente diferenciado de garbo e elegância para aqueles que sabem apreciar bons momentos!</h3>
+                    
+                        <p>Aqui está uma frase aleatória, sobre algum assunto que deveria ser muito importante. Estou ficando sem ideias, pois já são 23:55.</br>
+                            Segue a história do jovem ancião mudo que, sentado em pé sobre uma pedra de madeira, dizia assim: "O Mundo é uma bola quadrada que gira parada, em torno do Sol!"
+                        </p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-xl-6 col-md-6">
+                            <div class="about_thumb">
+                                <img src="img/about/about_1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-md-6">
+                            <div class="about_thumb">
+                                <img src="img/about/about_2.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -107,8 +118,6 @@
             </div>
         </div>
     </div>
-    <!-- slider_area_end -->
-
     <!-- about_area_start -->
     <div class="about_area">
         <div class="icon_1 d-none d-md-block">
@@ -124,11 +133,10 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="about_info_wrap">
-                            <h3>Um pouco de nossa história</h3>
-                            <span class="long_dash"></span>
-                        <p>Se chamando, carinhosamente, de “camelô de hambúrguer” no início, o Bistrô era uma pequena lanchonete, entretanto o investimento financeiro de Ronald Golias foi o divisor de águas para nós, pois desde o começo topou dar carta branca para fazermos o que acreditávamos ser o melhor para marca.
-                        De lá pra cá fizemos toda gestão de marca e identidade visual, como cardápio, papel acoplado, papel bandeja, guardanapo personalizado e conteúdos para redes sociais. Tudo com o objetivo de ajudar o Bistrô crescer mais e se consolidar no mercado.</p>                            
-                        
+                        <h3>Um pouco de nossa história</h3>
+                        <span class="long_dash"></span>
+                    <p>Se chamando, carinhosamente, de “camelô de hambúrguer” no início, o Bistrô era uma pequena lanchonete, entretanto o investimento financeiro de Ronald Golias foi o divisor de águas para nós, pois desde o começo topou dar carta branca para fazermos o que acreditávamos ser o melhor para marca.
+                    De lá pra cá fizemos toda gestão de marca e identidade visual, como cardápio, papel acoplado, papel bandeja, guardanapo personalizado e conteúdos para redes sociais. Tudo com o objetivo de ajudar o Bistrô crescer mais e se consolidar no mercado.</p> 
                         <ul class="food_list">
                             <li>
                                 <img src="img/svg_icon/salad.svg" alt="">
@@ -156,276 +164,6 @@
     </div>
     <!-- about_area_end -->
 
-    <!-- Delicious area start  -->
-    <div class="Delicious_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title text-center mb-50">
-                        <h3>Le meilleur de la cuisine française pour vous! What's Delícia!!!</h3>
-                        <h5>O melhor da culinária francesa para você! Que delícia!!!</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="tablist_menu">
-                    <div class="row">
-                            <div class="col-xl-12">
-                                    <ul class="nav justify-content-center" id="pills-tab" role="tablist">
-                                            <li class="nav-item">
-                                              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
-                                                  <div class="single_menu text-center">
-                                                      <div class="icon">
-                                                          <i class="flaticon-lunch"></i>
-                                                      </div>
-                                                        <h4>Almoço</h4>
-                                                  </div>
-                                              </a>
-                                            </li>
-                                            <li class="nav-item">
-                                              <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
-                                                    <div class="single_menu text-center">
-                                                            <div class="icon">
-                                                                <i class="flaticon-food"></i>
-                                                            </div>
-                                                            <h4>Café da manhã</h4>
-                                                        </div>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                              <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">
-                                                    <div class="single_menu text-center">
-                                                            <div class="icon">
-                                                                <i class="flaticon-kitchen"></i>
-                                                            </div>
-                                                            <h4>Jantar</h4>
-                                                        </div>
-                                                </a>
-                                            </li>
-                                    </ul>
-                            </div>
-                        </div>
-            </div>
-
-            <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        <div class="row">
-                <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/delicious/picanha.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>#01. Picanha avec farofa</h3>
-                            <p>Faux picanha déguisé avec de la farine de manioc!</p>
-                            <span>R$ 60,00</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                        <div class="single_delicious d-flex align-items-center">
-                                <div class="thumb">
-                                    <img src="img/delicious/pernil.png" alt="">
-                                </div>
-                                <div class="info">
-                                    <h3>#02. Jarret rôti avec tutú aux haricots </h3>
-                                    <p>Jarret juteux avec un tutu savoureux!</p>
-                                    <span>R$ 55,00</span>
-                                </div>
-                            </div>
-                            
-                </div>
-                <div class="col-lg-6 col-md-6">
-                        <div class="single_delicious d-flex align-items-center">
-                                <div class="thumb">
-                                    <img src="img/delicious/strogonoff.png" alt="">
-                                </div>
-                                <div class="info">
-                                    <h3>#03. Poulet strogonoff </h3>
-                                    <p>Un classique!!!</p>
-                                    <span>R$ 20,00</span>
-                                </div>
-                            </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/delicious/peixe.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>#04. Rouget en tranches avec bouillie de poisson</h3>
-                            <p>Celui-ci est d'impressionner!</p>
-                            <span>R$ 40,00</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                        <div class="single_delicious d-flex align-items-center">
-                                <div class="thumb">
-                                    <img src="img/delicious/frango.png" alt="">
-                                </div>
-                                <div class="info">
-                                    <h3>#05. Poulet rôti</h3>
-                                    <p>Poulet croquant!</p>
-                                    <span>R$ 18,00</span>
-                                </div>
-                            </div>
-                           
-                </div>
-                <div class="col-lg-6 col-md-6">
-                        <div class="single_delicious d-flex align-items-center">
-                                <div class="thumb">
-                                    <img src="img/delicious/arroz.png" alt="">
-                                </div>
-                                <div class="info">
-                                    <h3>#06. Riz et haricots</h3>
-                                    <p>Exempt de présentations!</p>
-                                    <span>R$ 7,00 </span>
-                                </div>
-                            </div>
-                </div>
-            </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="row">
-                <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/delicious/pao_chapa.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>#07. Pain chaud</h3>
-                            <p>Commencez votre journée avec les meilleurs.</p>
-                            <span>R$ 5,00</span>
-                        </div>
-                    </div>
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/delicious/linguica.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>#09. Pain avec saucisse</h3>
-                            <p>Spectacle dans Balle!</p>
-                            <span>R$ 10,00</span>
-                        </div>
-                    </div>
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/delicious/paodequeijo.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>#11. Pain au fromage</h3>
-                            <p>Portion vilain du meilleur pain au fromage. Remarque: la recette d'Ana Maria.</p>
-                            <span>R$ 7,00</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/delicious/petropolis.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>#08. Toast Petrópolis au parmesan</h3>
-                            <p>Dom Pedro II n'a pas commencé sa journée sans l'un de ces!</p>
-                            <span>R$ 6,50</span>
-                        </div>
-                    </div>
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/delicious/paocovo.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>#10. Pain aux oeufs</h3>
-                            <p>Celui-ci est à manger à genoux!</p>
-                            <span>R$ 6,50</span>
-                        </div>
-                    </div>
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/delicious/fuba.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>#12. Gâteau à la semoule de maïs à la noix de coco</h3>
-                            <p>Let's respeitar!</p>
-                            <span>R$ 5,00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <div class="row">
-                <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/delicious/1.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>#13. Poulet à la farine de manioc</h3>
-                            <p>Poulet avec farine yoki épicée et poivre.</p>
-                            <span>R$ 20,00</span>
-                        </div>
-                    </div>
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/delicious/lasanha.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>#15. Lasagnes normales du dimanche</h3>
-                            <p>C'est pour applaudir debout!</p>
-                            <span>R$ 25,00</span>
-                        </div>
-                    </div>
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/delicious/5.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>#17. Burger Cury</h3>
-                            <p>Hamburger artisanal au curry.</p>
-                            <span>R$ 18,00</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/delicious/canelone.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>#14. Presunto de parma caneloni e mussarela búfala</h3>
-                            <p>Impressionnez votre petite amie et faites-la pleurer plus tard.</p>
-                            <span>R$ 68,00 + R$ 1,00</span>
-                        </div>
-                    </div>
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/delicious/4.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>#16. Crêpe fou</h3>
-                            <p>Crêpe avec de la glace et un morceau de kiwi.</p>
-                            <span>R$ 13,00</span>
-                        </div>
-                    </div>
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/delicious/6.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>#18. Gros Pourri</h3>
-                            <p>Ce hamburger de la place.</p>
-                            <span>R$ 15,00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    </div>
-                  </div>
-            
-        </div>
-    </div>
-    <!--/ Delicious area start  -->
     <!-- testimonial_area  -->
     <div class="testimonial_area overlay ">
         <div class="container">
@@ -532,7 +270,7 @@
                         <div class="single_carousel">
                             <div class="single_testmonial ">
                                 <div class="author_opinion">
-                                    <p>“Restaurante agradável, ótima refrigeração, variados pratos à la Carte e agora dispõe de executivos que são muito bem servidos e que atendem bem os usuários.com preços muito bons.</p>
+                                    <p>“Restaurante agradável ,ótima refrigeração ,variados pratos à la Carte e agora dispõe de executivos que são muito bem servidos e que atendem bem os usuários .com preços muito bons .</p>
                                 </div>
                                 <div class="testmonial_author">
                                     <div class="thumb">
@@ -557,46 +295,8 @@
         </div>
     </div>
     <!-- /testimonial_area  -->
-
-    <!-- gallery_start -->
-    <div class="gallery_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title text-center mb-75">
-                        <h3>Galeria de Fotos</h3>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="single_gallery big_img">
-            <a class="popup-image" href="img/gallery/1.png"></a>
-            <img src="img/gallery/1.png" alt="">
-        </div>
-        <div class="single_gallery small_img">
-            <a class="popup-image" href="img/gallery/2.png"></a>
-            <img src="img/gallery/2.png" alt="">
-        </div>
-        <div class="single_gallery small_img">
-            <a class="popup-image" href="img/gallery/3.png"></a>
-            <img src="img/gallery/3.png" alt="">
-        </div>
-
-        <div class="single_gallery small_img">
-            <a class="popup-image" href="img/gallery/4.png"></a>
-            <img src="img/gallery/4.png" alt="">
-        </div>
-        <div class="single_gallery small_img">
-            <a class="popup-image" href="img/gallery/5.png"></a>
-            <img src="img/gallery/5.png" alt="">
-        </div>
-        <div class="single_gallery big_img">
-            <a class="popup-image" href="img/gallery/6.png"></a>
-            <img src="img/gallery/6.png" alt="">
-        </div>
-    </div>
-    
-    </div>
     </div>
 
     <!-- footer_start  -->

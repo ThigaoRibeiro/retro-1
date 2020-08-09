@@ -1,5 +1,6 @@
 <?php
     require_once("Databases.php");
+    
 
     //-----------------------------INSERINDO COMANDO SQL A UMA VARIAVEL ------------------------------
     try{     

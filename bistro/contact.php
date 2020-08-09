@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -41,7 +42,7 @@
                         <div class="row align-items-center no-gutters">
                             <div class="col-xl-3 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html">
+                                    <a href="index.php">
                                         <img src="img/logo.png" alt="">
                                     </a>
                                 </div>
@@ -50,17 +51,17 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a class="active" href="index.html">Início</a></li>
-                                            <li><a href="Menu.html">Cardápio</a></li>
-                                            <li><a href="about.html">Sobre Nós </a></li>
-                                            <li><a href="contact.html">Peça já!</a></li>
+                                            <li><a class="active" href="index.php">Início</a></li>
+                                            <li><a href="menu.php">Cardápio</a></li>
+                                            <li><a href="about.php">Sobre Nós </a></li>
+                                            <li><a href="contact.php">Peça já!</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                                 <div class="say_hello">
-                                    <a href="cadastro.html">Cadastre-se!</a> <!--aqui colocar cadastre-se-->
+                                    <a href="cadastro.php">Cadastre-se!</a> <!--aqui colocar cadastre-se-->
                                 </div>
                             </div>
                             <div class="col-12">
@@ -136,13 +137,27 @@
     <!-- ================ SEÇÃO DO PEDIDO ================= -->
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="contact-title">Peça aqui!</h2>
+                        
+<!-- ================ SESSION PHP ================= -->
+
+        
+<h2 class="contact-title">Peça aqui!</h2>
+
+                      
+
+<!-- ================ FIM DA SESSION PHP ================= -->
+
+
+
+
+<!-- ================ INCÍCIO DO FORMULÁRIO DO PEDIDO ================= -->
+
                     </div>
                     <div class="col-lg-8">
 
-                        <!-- ================ INCICIO DO FORMULÁRIO DO PEDIDO ================= -->
+                        <!-- ================ INCÍCIO DO FORMULÁRIO DO PEDIDO ================= -->
 
-                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate"> 
+                        <form class="form-contact contact_form" action="recebedor_de_dados.php" method="POST" id="contactForm" novalidate="novalidate"> 
                             <div class="row">
                                 
                                 <div class="col-sm-6">
@@ -159,7 +174,7 @@
                                     <div class="form-group">
                                         
                                     
-                                        <select class="wide">
+                                        <select class="wide" name="id_produto">
                                             <option data-display="Almoço">Almoço</option>
                                             <option value="1">Picanha avec farofa | R$ 60,00</option>
                                             <option value="2">Jarret rôti avec tutú aux haricots | R$ 55,00</option>
@@ -169,12 +184,12 @@
                                             <option value="6">Riz et haricots | R$ 7,00</option>
                                         </select><br><br>
                                         <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
-                                        <input type="number" id="quantity" name="quantity" min="1" max="5">
+                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5">
                                         <br><br>
 
                                     
                                     
-                                        <select class="wide">
+                                        <select class="wide" name="id_produto">
                                             <option data-display="Café da Manhã">Café da Manhã</option>
                                             <option value="7">Pain chaud | R$ 5,00</option>
                                             <option value="8">Toast Petrópolis au parmesan | R$ 6,50</option>
@@ -184,12 +199,12 @@
                                             <option value="12">Gâteau à la semoule de maïs à la noix de coco | R$ 5,00</option>
                                         </select><br><br>
                                         <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
-                                        <input type="number" id="quantity" name="quantity" min="1" max="5">
+                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5">
                                         <br><br>
                                         
 
                                     
-                                        <select class="wide">
+                                        <select class="wide" name="id_produto">
                                             <option data-display="Jantar">Jantar</option>
                                             <option value="13">Poulet à la farine de manioc | R$ 20,00</option>
                                             <option value="14">Presunto de parma caneloni e mussarela búfala | R$ 68,00 + R$ 1,00</option>
@@ -199,7 +214,7 @@
                                             <option value="18">Gros Pourri | R$ 15,00</option>
                                         </select><br><br>
                                         <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
-                                        <input type="number" id="quantity" name="quantity" min="1" max="5">
+                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5">
 
 
                                     </div>
@@ -286,8 +301,8 @@
                                 Links Úteis
                             </h3>
                             <ul>
-                                <li><a href="Menu.html">Cardápio</a></li>
-                                <li><a href="about.html">Sobre Nós</a></li>
+                                <li><a href="Menu.php">Cardápio</a></li>
+                                <li><a href="about.php">Sobre Nós</a></li>
                                 
                             </ul>
                         </div>
