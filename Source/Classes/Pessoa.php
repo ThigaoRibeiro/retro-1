@@ -6,8 +6,8 @@ namespace Source\Classes;
 
 class Pessoa
 {
-    protected $cpf;
     protected $id_cliente;           /*BD -> id_cliente*/
+    protected $cpf;
     protected $nome;                 /*BD -> nome*/
     protected $email;
     protected $telefone;            /*BD -> telefone*/
