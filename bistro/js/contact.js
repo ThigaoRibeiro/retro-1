@@ -30,12 +30,12 @@ $(document).ready(function(){
                 },
                 message: {
                     required: true,
-                    minlength: 5
+                    minlength: 0
                 }
             },
             messages: {
                 name: {
-                    required: "vamos lá, você tem um nome, não é?",
+                    required: "vamos lá, não esqueça de nos informar seu nome.",
                     minlength: "seu nome deve consistir em pelo menos 2 caracteres"
                 },
                 subject: {
@@ -43,14 +43,14 @@ $(document).ready(function(){
                     minlength: "seu assunto deve possuir em pelo menos 4 caracteres"
                 },
                 number: {
-                    required: "vamos lá, você tem um número, não é?",
+                    required: "Vamos lá, você tem um número, não é?",
                     minlength: "seu número precisa ter pelo menos 11 caracteres (contando com o cód de área)"
                 },
                 email: {
-                    required: "sem email, sem messagem"
+                    required: "Ops! acho que esqueceu de nos informar seu email!!"
                 },
                 message: {
-                    required: "hum ... sim, você precisa escrever algo para enviar este formulário.",
+                    required: "hum ... sim, não esqueça que você pode colocar alguma preferência sua aqui.",
                     minlength: "Isso é tudo? realmente?"
                 }
             },

@@ -37,17 +37,12 @@ $message = $_POST['message'];
 
 //----------------------------------------------AREA DE TESTE E DEBUG-------------------------------------------------
 
+
+
 var_dump(
- $cpf,
- $nome,
- $email,
- $telefone,
- $rua,
- $bairro,
- $cidade,
- $complemento,
- $cep,
- $pontoReferencia
+    $quantidade
+    
+    
 );
 
 ?>
