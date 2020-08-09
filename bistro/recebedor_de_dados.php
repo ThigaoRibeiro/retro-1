@@ -10,6 +10,8 @@
 
 //----------------------------------------------CADASTRO DE FUNCIONÁRIO-------------------------------------------------
 
+
+
 $cpf = $_POST['cpf'];
 $nome = $_POST['nome'];
 $email = $_POST['email'];
@@ -17,7 +19,7 @@ $telefone = $_POST['telefone'];
 $rua = $_POST['rua']; 
 $bairro = $_POST['bairro'];
 $cidade = $_POST['cidade'];
-$complemento = $_POST['complemento'];
+$complemento = 1321321; // $_POST['complemento'];
 $cep = $_POST['cep'];
 $pontoReferencia = $_POST['pontoReferencia'];
 
@@ -40,7 +42,7 @@ $message = $_POST['message'];
 
 
 var_dump(
-    $quantidade
+    
     
     
 );

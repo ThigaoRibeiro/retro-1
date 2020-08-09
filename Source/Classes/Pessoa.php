@@ -6,7 +6,6 @@ namespace Source\Classes;
 
 class Pessoa
 {
-    protected $id_cliente;           /*BD -> id_cliente*/
     protected $cpf;
     protected $nome;                 /*BD -> nome*/
     protected $email;
@@ -18,11 +17,6 @@ class Pessoa
     protected $endereco;
 
 
-
-    protected $admissao;
-    protected $matricula;
-    protected $funcao;
-
     /**
      * Pessoa constructor.
      * @param $cpf
@@ -30,20 +24,13 @@ class Pessoa
      * @param $nome
      * @param $telefone
      * @param Endereco $endereco
-     * @param $admissao
-     * @param $matricula
-     * @param $funcao
      */
-    public function __construct($cpf, $id_cliente, $nome, $telefone, Endereco $endereco, $admissao, $matricula, $funcao)
+    public function __construct($cpf,$nome,$telefone, Endereco $endereco)
     {
-        $this->cpf = $cpf;
-        $this->id_cliente = $id_cliente;
-        $this->nome = $nome;
-        $this->telefone = $telefone;
-        $this->endereco = $endereco;
-        $this->admissao = $admissao;
-        $this->matricula = $matricula;
-        $this->funcao = $funcao;
+        $this->cpf = filter_var($cpf, FILTER_SANITIZE_STRIPPED);
+        $this->nome = filter_var($nome, FILTER_SANITIZE_STRIPPED);
+        $this->telefone = filter_var($telefone, FILTER_SANITIZE_STRIPPED);
+        $this->endereco = filter_var($endereco, FILTER_SANITIZE_STRIPPED);        
     }
 
     public function setEmail ($email)
@@ -62,14 +49,6 @@ class Pessoa
     public function getCpf()
     {
         return $this->cpf;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIdCliente()
-    {
-        return $this->id_cliente;
     }
 
     /**
@@ -96,29 +75,6 @@ class Pessoa
         return $this->endereco;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAdmissao()
-    {
-        return $this->admissao;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMatricula()
-    {
-        return $this->matricula;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFuncao()
-    {
-        return $this->funcao;
-    }
  
     public function getEmail()
     {
