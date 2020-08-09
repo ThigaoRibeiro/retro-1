@@ -3,57 +3,59 @@
 
     //-----------------------------INSERINDO COMANDO SQL A UMA VARIAVEL ------------------------------
     try{     
+
+         //----------------------CADASTRO NOME E EMAIL DO FUNCIONARIO------------------------------------------
+        
+         
+         $sql_func ="INSERT INTO cliente(nome, email, cpf) VALUES (:n,:e,:c)";
  
+            $resp_f = $pdo->prepare($sql_func); 
+            $nome = "Junior do Carlos";
+            $email = "junior.carlos@gmail.com.br";
+            $cpf = "15698571865";
+            $resp_f->bindValue(":n", $nome);
+            $resp_f->bindValue(":e", $email);
+            $resp_f->bindValue(":c", $cpf);
+            $resp_f->execute();
 
-        //----------------------CADASTRO NOME DO FUNCIONARIO-------------------------------------------
+        //------------------------PEGANDO O ULTIMO ID INSERIDO----------------------------------------
         
-        $sql_func ="INSERT INTO cliente(nome, email) VALUES (:f,:e)";
+         $sql = "SELECT * FROM cliente ORDER BY clie_id DESC";
+            $sql = $pdo->query($sql);
+            $row = $sql->fetch();
+            $ultimo_id =$row['clie_id'];
+        
+       
 
-        $resp_f = $pdo->prepare($sql_func); 
-        $nome = "Junior do Carlos";
-        $email = "junior.carlos@gmail.com.br";
-        $resp_f->bindValue(":f", $nome);
-        $resp_f->bindValue(":e", $email);
-        $resp_f->execute();
-
-        //------------------------CADASTRO TELEFONE FUNCIONARIO---------------------------------------
-        
-        $sql_func_tel = "INSERT INTO cliente_telefone(tel_01, tel_02) VALUES (:t1, :t2)";
-        
-        $resp_tel = $pdo->prepare($sql_func_tel);
-        $tel1= "2133548925";
-        $tel2= "21982654893";
-        $resp_tel->bindValue(":t1",$tel1,);
-        $resp_tel->bindValue(":t2",$tel2); 
-        $resp_tel->execute();
         
         //-------------------------CADASTRO ENDERECO FUNCIONARIO -------------------------------------
-        
-        $sql_func_endereco="INSERT INTO cliente_endereco (endereco_rua, endereco_bairro,
-        endereco_cidade, endereco_complemento, endereco_cep, endereco_ponto_referencia)
-        VALUES(:r, :b, :c, :co, :cp, :pr)";
-
-        $resp_endereco = $pdo->prepare($sql_func_endereco);
-        $rua = "Rua 5 de agosto";
-        $bairro = "Vista Alegre";
+           
+        $rua = "Rua Augusto Braga";
+        $complemento = "casa";
+        $bairro = "Madureira";
         $cidade = "Rio de Janeiro";
-        $compl = "Casa";
-        $cep = "215689500";
-        $pontr = "Perto do posto Shell";
-
-        $resp_endereco->bindValue(":r",$rua);
-        $resp_endereco->bindValue(":b",$bairro);
-        $resp_endereco->bindValue(":c",$cidade);
-        $resp_endereco->bindValue(":co",$compl);
-        $resp_endereco->bindValue(":cp",$cep);
-        $resp_endereco->bindValue(":pr",$pontr);
-        $resp_endereco->execute();
-
+        $cep = "21258782";
+        $referencia = "Perto do Posto Shell";
+       
+        $sql_func_endereco="INSERT INTO  clie_endereco (clie_id, rua,  complemento, bairro, cidade, cep, referencia)
+        VALUES(?,?,?,?,?,?,?)";
 
            
+        $pdo->prepare($sql_func_endereco)->execute([$ultimo_id, $rua, $complemento, $bairro, $cidade, $cep, $referencia]);
        
+
+        //------------------------CADASTRO TELEFONE FUNCIONARIO---------------------------------------
+        $telefone = "021952695489";
+        $sql_func_telefone="INSERT INTO  clie_telefone (clie_id, tel_01)
+        VALUES(?,?)";
+
+        $pdo->prepare($sql_func_telefone)->execute([$ultimo_id, $telefone]);
+
+      
             //-----------------------------------MENSAGEM DE ERRO --------------------------------------------
     }catch(PDOException $erro){
         var_dump($erro);
     }
 
+
+   
