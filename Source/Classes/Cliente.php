@@ -1,24 +1,7 @@
-<<<<<<< HEAD
 <?php
 
-
-namespace Source\Classes;
-
-
 class Cliente
-extends \Source\Classes\Pessoa
+extends Pessoa
 {
 
-=======
-<?php
-
-
-namespace Source\Classes;
-
-
-class Cliente
-extends \Source\Classes\Pessoa
-{
-
->>>>>>> 96ffe39ed2c624b442acd60ebe545b436295e418
 }
