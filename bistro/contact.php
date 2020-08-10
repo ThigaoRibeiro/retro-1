@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -41,7 +42,7 @@
                         <div class="row align-items-center no-gutters">
                             <div class="col-xl-3 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html">
+                                    <a href="index.php">
                                         <img src="img/logo.png" alt="">
                                     </a>
                                 </div>
@@ -50,17 +51,17 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a class="active" href="index.html">Início</a></li>
-                                            <li><a href="Menu.html">Cardápio</a></li>
-                                            <li><a href="about.html">Sobre Nós </a></li>
-                                            <li><a href="contact.html">Peça já!</a></li>
+                                            <li><a class="active" href="index.php">Início</a></li>
+                                            <li><a href="menu.php">Cardápio</a></li>
+                                            <li><a href="about.php">Sobre Nós </a></li>
+                                            <li><a href="contact.php">Peça já!</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                                 <div class="say_hello">
-                                    <a href="cadastro.html">Cadastre-se!</a> <!--aqui colocar cadastre-se-->
+                                    <a href="cadastro.php">Cadastre-se!</a> <!--aqui colocar cadastre-se-->
                                 </div>
                             </div>
                             <div class="col-12">
@@ -133,37 +134,61 @@
     
                 </div>
     
-    <!-- ================ contact section ================= -->
+    <!-- ================ SEÇÃO DO PEDIDO ================= -->
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="contact-title">Peça aqui!</h2>
+                        
+<!-- ================ SESSION PHP ================= -->
+
+        
+<h2 class="contact-title">Peça aqui!</h2>
+
+                      
+
+<!-- ================ FIM DA SESSION PHP ================= -->
+
+
+
+
+<!-- ================ INCÍCIO DO FORMULÁRIO DO PEDIDO ================= -->
+
                     </div>
                     <div class="col-lg-8">
-                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+
+                        <!-- ================ INCÍCIO DO FORMULÁRIO DO PEDIDO ================= -->
+
+                        <form action="recebedor_de_dados.php" method="POST" id="contacttForm" novalidate="novalidate"> 
                             <div class="row">
                                 
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Informe seu nome">
+                                        <input class="form-control valid" name="name" id="name" type="text"  placeholder="Informe seu nome">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="E-mail">
+                                        <input class="form-control valid" name="email" id="email" type="email" placeholder="E-mail">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         
                                     
+<<<<<<< HEAD:bistro/contact.html
                                         <select class="wide">
                                             <option data-display="Almoço">Almoço</option>
                                             <option value="2">Picanha avec farofa | R$ 60,00</option>
+=======
+                                        <select class="wide" name="id_produto">
+                                            <option data-display="Almoço" novalidate="novalidate">Almoço</option>
+                                            <option value="1">Picanha avec farofa | R$ 60,00</option>
+>>>>>>> thiago:bistro/contact.php
                                             <option value="2">Jarret rôti avec tutú aux haricots | R$ 55,00</option>
                                             <option value="3">Poulet strogonoff | R$ 20,00</option>
                                             <option value="4">Rouget en tranches avec bouillie de poisson | R$ 40,00</option>
                                             <option value="5">Poulet rôti | R$ 18,00</option>
                                             <option value="6">Riz et haricots | R$ 7,00</option>
+<<<<<<< HEAD:bistro/contact.html
                                         </select>
                                         <input type="number" id="quantidade" name="quantidade" min="1" max="10">
                                         
@@ -172,11 +197,24 @@
                                         <select class="wide">
                                             <option data-display="Café da Manhã">Café da Manhã</option>
                                             <option value="8">Pain chaud | R$ 5,00</option>
+=======
+                                        </select><br><br>
+                                        <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
+                                        <input type="number" id="quantidade" name="quant" min="1" max="5" value="1">
+                                        <br><br>
+
+                                    
+                                    
+                                        <select class="wide" name="id_produto">
+                                            <option data-display="Café da Manhã" novalidate="novalidate">Café da Manhã</option>
+                                            <option value="7">Pain chaud | R$ 5,00</option>
+>>>>>>> thiago:bistro/contact.php
                                             <option value="8">Toast Petrópolis au parmesan | R$ 6,50</option>
                                             <option value="9">Pain avec saucisse | R$ 10,00</option>
                                             <option value="10">Pain aux oeufs | R$ 6,50</option>
                                             <option value="11">Pain au fromage | R$ 7,00</option>
                                             <option value="12">Gâteau à la semoule de maïs à la noix de coco | R$ 5,00</option>
+<<<<<<< HEAD:bistro/contact.html
                                         </select>
                                         <input type="number" id="quantidade" name="quantidade" min="1" max="10">
                                         
@@ -185,16 +223,34 @@
                                         <select class="wide">
                                             <option data-display ="Jantar">Jantar</option>
                                             <option value="14">Poulet à la farine de manioc | R$ 20,00</option>
+=======
+                                        </select><br><br>
+                                        <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
+                                        <input type="number" id="quantidade" name="quant" min="1" max="5" value="1">
+                                        <br><br>
+                                        
+
+                                    
+                                        <select class="wide" name="id_produto">
+                                            <option data-display="Jantar" novalidate="novalidate">Jantar</option>
+                                            <option value="13">Poulet à la farine de manioc | R$ 20,00</option>
+>>>>>>> thiago:bistro/contact.php
                                             <option value="14">Presunto de parma caneloni e mussarela búfala | R$ 68,00 + R$ 1,00</option>
                                             <option value="15">Lasagnes normales du dimanche - C'est pour applaudir debout! | R$ 25,00</option>
                                             <option value="16">Crêpe fou - Crêpe avec de la glace et un morceau de kiwi | R$ 13,00</option>
                                             <option value="17">Burger Cury | R$ 18,00</option>
                                             <option value="18">Gros Pourri | R$ 15,00</option>
+<<<<<<< HEAD:bistro/contact.html
                                         </select>
                                         <input type="number" id="quantidade" name="quantidade" min="1" max="10">
                                         
                                         <br>
                                     
+=======
+                                        </select><br><br>
+                                        <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
+                                        <input type="number" id="quantidade" name="quant" min="1" max="5" value="1">
+>>>>>>> thiago:bistro/contact.php
 
 
                                     </div>
@@ -204,7 +260,7 @@
                                 </div>
                               <div class="col-6">
                                     <div class="form-group">
-                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="6" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Algum comentário? Ex: Sem cebola... "></textarea>
+                                        <textarea class="form-control w-100" name="message" id="mesage" cols="30" rows="6"  placeholder=" Algum comentário? Ex: Sem cebola... "></textarea>
                                     </div>
                                 </div>
 
@@ -212,13 +268,15 @@
                             <div class="form-group mt-3">
                                 <button type="submit" class="button button-contactForm boxed-btn">Enviar pedido!</button>
                             </div>
-                        </form>
+                        </form> 
+                        <!-- ================ FIM DO FORMULÁRIO DO PEDIDO ================= -->
+
                     </div>
 
                 </div>
             </div>
         </section>
-    <!-- ================ contact section end ================= -->
+    <!-- ================ FIM DA SEÇÃO DO PEDIDO ================= -->
     
     <!-- footer_start  -->
     <footer class="footer">
@@ -279,8 +337,8 @@
                                 Links Úteis
                             </h3>
                             <ul>
-                                <li><a href="Menu.html">Cardápio</a></li>
-                                <li><a href="about.html">Sobre Nós</a></li>
+                                <li><a href="Menu.php">Cardápio</a></li>
+                                <li><a href="about.php">Sobre Nós</a></li>
                                 
                             </ul>
                         </div>

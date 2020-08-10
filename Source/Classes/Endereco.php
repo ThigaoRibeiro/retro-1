@@ -2,7 +2,7 @@
 <?php
 
 
-namespace Source\Classes;
+
 
 
 class Endereco
@@ -109,12 +109,12 @@ class Endereco
      */
     public function __construct($rua, $complemento, $bairro, $cidade, $cep, $pontoReferencia)
     {
-        $this->rua = $rua;
-        $this->complemento = $complemento;
-        $this->bairro = $bairro;
-        $this->cidade = $cidade;
-        $this->cep = $cep;
-        $this->pontoReferencia = $pontoReferencia;
+        $this->rua = filter_var($rua, FILTER_SANITIZE_STRIPPED);
+        $this->complemento = filter_var($complemento, FILTER_SANITIZE_STRIPPED);
+        $this->bairro = filter_var($bairro, FILTER_SANITIZE_STRIPPED);
+        $this->cidade = filter_var ($cidade, FILTER_SANITIZE_STRIPPED);
+        $this->cep = filter_var ($cep, FILTER_SANITIZE_STRIPPED);
+        $this->pontoReferencia = filter_var($$pontoReferencia, FILTER_SANITIZE_STRIPPED);
     }
 
     /**
@@ -166,5 +166,5 @@ class Endereco
     }
 
 
->>>>>>> 96ffe39ed2c624b442acd60ebe545b436295e418
+>>>>>>> thiago
 }
