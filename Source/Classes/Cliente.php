@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+<?php
+
+class Cliente
+extends Pessoa
+{
+
+=======
 <?php
 
 
@@ -8,4 +16,5 @@ class Cliente
 extends \Source\Classes\Pessoa
 {
 
+>>>>>>> thiago
 }

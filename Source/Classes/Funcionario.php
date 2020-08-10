@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+<?php
+
+
+
+
+
+class Funcionario
+extends Pessoa
+{
+
+=======
 <?php
 
 
@@ -8,4 +20,5 @@ class Funcionario
 extends \Source\Classes\Pessoa
 {
 
+>>>>>>> thiago
 }
