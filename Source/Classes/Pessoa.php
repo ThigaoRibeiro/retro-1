@@ -32,14 +32,14 @@ class Pessoa
      * @param Endereco $endereco
      * @param $pontoReferencia
      */
-    public function __construct($cpf, $nome, $email, $telefone, Endereco $endereco, $pontoReferencia)
+    public function __construct($cpf, $nome, $email, $telefone)
     {
         $this->cpf = $cpf;
         $this->nome = $nome;
         $this->email = $email;
         $this->telefone = $telefone;
-        $this->endereco = $endereco;
-        $this->pontoReferencia = $pontoReferencia;
+        //$this->endereco = $endereco;
+       // $this->pontoReferencia = $pontoReferencia;
     }
 
     /**

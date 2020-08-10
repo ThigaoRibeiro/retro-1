@@ -1,14 +1,16 @@
 <?php
 
-//require __DIR__."/Source/Classes/Pessoa";
-//require __DIR__."/Source/Classes/Endereço";
-//require __DIR__."/Source/Classes/Funcionario";
-//require __DIR__."/Source/Classes/Cliente";
-//require __DIR__."/Source/Classes/Produto";
+//require __DIR__.'../../Source/Classes/Pessoa.php';
+//require __DIR__."/Source/Classes/Endereço.php";
+//require __DIR__."/Source/Classes/Funcionario.php";
+//require __DIR__."/Source/Classes/Cliente.php";
+//require __DIR__."/Source/Classes/Produto.php";
 //require __DIR__."/CRUD/insert/";
 
 
-//----------------------------------------------CADASTRO DE FUNCIONÁRIO-------------------------------------------------
+//----------------------------------------------CADASTRO DE CLIENTE-------------------------------------------------
+
+//$cliente = new Pessoa($cpf, $nome, $email, $telefone);
 
 $cpf = $_POST['cpf'];
 $nome = $_POST['nome'];
@@ -20,34 +22,15 @@ $cidade = $_POST['cidade'];
 $complemento = $_POST['complemento'];
 $cep = $_POST['cep'];
 $pontoReferencia = $_POST['pontoReferencia'];
-
-
-//----------------------------------------------COMPLEMENTO PARA CADASTRO DE FUNCIONÁRIO-------------------------------------------------
-//$admissao = $_POST['admissao'];
-//$matricula = $_POST['matricula'];
-//$funcao = $_POST['funcao'];
-
-
-//----------------------------------------------CADASTRO DE PRODUTOS-------------------------------------------------
-
-
-$id_produto = $_POST['id_produto'];
-$quantidade = $_POST['quantidade'];
-$message = $_POST['message'];
-
-//----------------------------------------------AREA DE TESTE E DEBUG-------------------------------------------------
-
-var_dump(
- $cpf,
- $nome,
- $email,
- $telefone,
- $rua,
- $bairro,
- $cidade,
- $complemento,
- $cep,
- $pontoReferencia
-);
+var_dump($cpf,
+$nome,
+$email,
+$telefone ,
+$rua  ,
+$bairro ,
+$cidade ,
+$complemento,
+$cep ,
+$pontoReferencia );
 
 ?>
