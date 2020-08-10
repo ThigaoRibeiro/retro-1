@@ -22,7 +22,7 @@ $cidade = $_POST['cidade'];
 $complemento = $_POST['complemento'];
 $cep = $_POST['cep'];
 $pontoReferencia = $_POST['pontoReferencia'];
-var_dump($cpf,
+/*var_dump($cpf,
 $nome,
 $email,
 $telefone ,
@@ -32,5 +32,5 @@ $cidade ,
 $complemento,
 $cep ,
 $pontoReferencia );
-
+*/
 ?>
