@@ -367,7 +367,13 @@
                                         unset( $_SESSION['msg']);
                                     };
                                 ?>
-                                <button name = "cadastro" class="sumbit_btn" type="submit">Enviar!</button>
+                                <button name = "cadastro" class="sumbit_btn" type="submit"><?php 
+                                    if(isset( $_SESSION['msg'])){
+                                        echo  $_SESSION['msg'] ;
+                                        unset( $_SESSION['msg']);
+                                    }else{
+                                        echo "Enviar!";
+                                    }?></button>
                             </div>
                         </form>
                         
