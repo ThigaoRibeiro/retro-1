@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "retro_db",
+            "driver": "MariaDB",
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "name": "retro",
+            "password": "7q5eb6eb@#",
+            "port": 3306,
+            "previewLimit": 50,
+            "server": "localhost",
+            "username": "yuri"
+        }
+    ]
+}
