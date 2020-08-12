@@ -17,14 +17,6 @@ class Pessoa
     protected $endereco;
 
 
-<<<<<<< HEAD
-=======
-    protected $pontoReferencia;
-    protected $admissao;
-    protected $matricula;
-    protected $funcao;
-
->>>>>>> 8caf8a7bcdff56d5d7807db718e65d4e538374ae
     /**
      * Pessoa constructor.
      * @param $cpf
@@ -32,7 +24,6 @@ class Pessoa
      * @param $email
      * @param $telefone
      * @param Endereco $endereco
-<<<<<<< HEAD
      */
     public function __construct($cpf,$nome,$telefone, Endereco $endereco)
     {
@@ -44,14 +35,6 @@ class Pessoa
 
     public function setEmail ($email)
     {
-=======
-     * @param $pontoReferencia
-     */
-    public function __construct($cpf, $nome, $email, $telefone)
-    {
-        $this->cpf = $cpf;
-        $this->nome = $nome;
->>>>>>> 8caf8a7bcdff56d5d7807db718e65d4e538374ae
         $this->email = $email;
         $this->telefone = $telefone;
         //$this->endereco = $endereco;
@@ -98,47 +81,7 @@ class Pessoa
         return $this->endereco;
     }
 
-<<<<<<< HEAD
- 
-    public function getEmail()
-    {
-        return $this->email;
-    }
-=======
-    /**
-     * @return mixed
-     */
-    public function getPontoReferencia()
-    {
-        return $this->pontoReferencia;
-    }
 
-    /**
-     * @return mixed
-     */
-    public function getAdmissao()
-    {
-        return $this->admissao;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMatricula()
-    {
-        return $this->matricula;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFuncao()
-    {
-        return $this->funcao;
-    }
-
-
->>>>>>> 8caf8a7bcdff56d5d7807db718e65d4e538374ae
 }
 
 

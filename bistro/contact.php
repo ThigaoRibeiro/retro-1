@@ -157,12 +157,13 @@
 
                         <!-- ================ INCÍCIO DO FORMULÁRIO DO PEDIDO ================= -->
 
-                        <form action="recebedor_de_dados.php" method="POST" id="contacttForm" novalidate="novalidate"> 
-                            <div class="row">
+                        <form action="recebedor_de_dados.php" method="POST"> 
+                            
+                        <div class="row">
                                 
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="name" id="name" type="text"  placeholder="Informe seu nome">
+                                        <input class="form-control valid" name="nome" id="name" type="text"  placeholder="Informe seu nome">
                                     </div>
                                 </div>
 
@@ -187,9 +188,9 @@
                                             <option value="6">Riz et haricots | R$ 7,00</option>
                                         </select><br>
                                         <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
-                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5"   >
+                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5" >
                                     <br><br>
-                                        
+                                    
                                     
                                         <select class="wide" name="id_produto">
                                             <option data-display="Café da Manhã">Café da Manhã</option>
@@ -201,7 +202,7 @@
                                             <option value="12">Gâteau à la semoule de maïs à la noix de coco | R$ 5,00</option>
                                         </select><br>
                                         <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
-                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5">
+                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5" >
                                     <br><br>
 
                                                                             
@@ -216,7 +217,7 @@
 
                                         </select><br>
                                         <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
-                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5">
+                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5" >
                                     <br><br>
                                    
                                    </div>
@@ -226,7 +227,7 @@
                                 </div>
                               <div class="col-6">
                                     <div class="form-group">
-                                        <textarea class="form-control w-100" name="message" id="mesage" cols="30" rows="6"  placeholder=" Algum comentário? Ex: Sem cebola... "></textarea>
+                                        <textarea class="form-control w-100" name="mensagem" id="mensagem" cols="30" rows="6"  placeholder=" Algum comentário? Ex: Sem cebola... "></textarea>
                                     </div>
                                 </div>
 
