@@ -1,11 +1,9 @@
 <?php
-    //session_start();
-    require_once __DIR__.'../bistro/cadastro.php';
-   
-    require_once __DIR__.'../BD/Databases.php';
-    //require "Databases.php";
-    //require "cadastro.php";
-    
+ 
+     
+    require_once __DIR__.'/Source/BD/Databases.php';
+
+
   
 
 
@@ -16,7 +14,7 @@
         
          //----------------------CADASTRO NOME E EMAIL DO FUNCIONARIO------------------------------------------
          //$cadastro = filter_input(INPUT_POST , 'cadastro', FILTER_SANITIZE_STRING);
-         if(empty(!$nome1)){
+         
             $nome1 = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
             $email1 = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
             $cpf1 = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_STRING);
@@ -24,7 +22,7 @@
             $sql_func ="INSERT INTO cliente(nome, email, cpf) VALUES (:n,:e,:c)";
  
             $resp_f = $pdo->prepare($sql_func);
-          
+            if(!empty(!$nome1)){
             $resp_f->bindValue(":n", $nome1);
             $resp_f->bindValue(":e", $email1);
             $resp_f->bindValue(":c", $cpf1);
