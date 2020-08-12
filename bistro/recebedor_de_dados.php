@@ -11,16 +11,16 @@ require __DIR__."/Source/Classes/Pessoa.php";
 //----------------------------------------------CADASTRO DE FUNCIONÁRIO-------------------------------------------------
 
     $pessoa = new Source\Classes\Pessoa(
-        $pessoa = $_POST['cpf'];
-        $pessoa = $_POST['nome'];
-        $pessoa = $_POST['email'];
-        $telefone = $_POST['telefone'];
-        $rua = $_POST['rua'];
-        $bairro = $_POST['bairro'];
-        $cidade = $_POST['cidade'];
-        $complemento = $_POST['complemento'];
-        $cep = $_POST['cep'];
-        $pontoReferencia = $_POST['pontoReferencia'];
+        $_POST['cpf'],
+        $_POST['nome'],
+        $_POST['email'],
+        $_POST['telefone'],
+        $_POST['rua'],
+        $_POST['bairro'],
+        $_POST['cidade'],
+        $_POST['complemento'],
+        $_POST['cep'],
+        $_POST['pontoReferencia']
     );
 
     /*$cpf = $_POST['cpf'];
@@ -39,18 +39,7 @@ require __DIR__."/Source/Classes/Pessoa.php";
 
 //----------------------------------------------AREA DE TESTE E DEBUG-------------------------------------------------
 var_dump(
-    /*$cpf,
-    $nome,
-    $email,
-    $telefone,
-    $rua,
-    $bairro,
-    $cidade,
-    $complemento, 
-    $cep,  
-    $pontoReferencia*/
-
-
+    $pessoa
 );
 
 
