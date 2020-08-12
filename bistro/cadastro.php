@@ -242,7 +242,11 @@
                 <!-- ================ alterando recebedor_dados.php para cadastro.cliente.php================= -->
 
 
+<<<<<<< HEAD
         <form method="POST" action="../Source/CRUD/Cadastro_cliente.php">
+=======
+            <form method="POST" action="recebedor_de_dados.php">
+>>>>>>> f731bf592203240666579cbc4f3d617d96dd8902
             <div class="row no-gutters">
                 <div class="col-xl-6 col-lg-6">
                     <div class="map_area">

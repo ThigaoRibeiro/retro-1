@@ -1,9 +1,7 @@
 <?php
- 
-     
+    //session_start();
     require_once __DIR__.'/Source/BD/Databases.php';
-
-
+    
   
 
 
@@ -14,7 +12,7 @@
         
          //----------------------CADASTRO NOME E EMAIL DO FUNCIONARIO------------------------------------------
          //$cadastro = filter_input(INPUT_POST , 'cadastro', FILTER_SANITIZE_STRING);
-         
+         //if($cadastro){
             $nome1 = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
             $email1 = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
             $cpf1 = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_STRING);
@@ -22,16 +20,13 @@
             $sql_func ="INSERT INTO cliente(nome, email, cpf) VALUES (:n,:e,:c)";
  
             $resp_f = $pdo->prepare($sql_func);
-            if(!empty(!$nome1)){
+          
             $resp_f->bindValue(":n", $nome1);
             $resp_f->bindValue(":e", $email1);
             $resp_f->bindValue(":c", $cpf1);
             $resp_f->execute();
             var_dump($nome1, $email1, $cpf1);
-          }else{
-        
-            header('Location:../bistro/cadastro.php');
-          }
+            var_dump($resp_f);
          
           //$pdo->prepare($sql_func)->execute([$nome1, $email1, $cpf1]);
       //------------------------PEGANDO O ULTIMO ID INSERIDO----------------------------------------
@@ -77,18 +72,22 @@
       $telefone1 = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_STRING);
       $sql_func_telefone="INSERT INTO  clie_telefone (clie_id, tel_01)
       VALUES(:clie, :t)";
-      if (!empty($telefone1)) {
+
         $resp_telefone =$pdo->prepare($sql_func_telefone);
         $resp_telefone->bindValue(":clie", $ultimo_id);
         $resp_telefone->bindValue(":t", $telefone1);
         $resp_telefone->execute();
-      }
+
 
       //$pdo->prepare($sql_func_telefone)->execute([$ultimo_id, $telefone1]);
 
 
   
 
+        // }else{
+          //   $_SESSION['msg'] = "<p style= 'color: red;'>MENSAGEM NÃO FOI ENVIADA</p>";
+          //    header("Location: cadastro.php");
+         //}
 
   
 

@@ -157,110 +157,77 @@
 
                         <!-- ================ INCÍCIO DO FORMULÁRIO DO PEDIDO ================= -->
 
-                        <form class="form-contact contact_form" action="recebedor_de_dados.php" method="POST" id="contactForm" novalidate="novalidate"> 
-                            <div class="row">
+                        <form action="recebedor_de_dados.php" method="POST"> 
+                            
+                        <div class="row">
                                 
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Informe seu nome'" placeholder="Informe seu nome">
+                                        <input class="form-control valid" name="nome" id="name" type="text"  placeholder="Informe seu nome">
                                     </div>
                                 </div>
+
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Informe seu endereço de e-mail'" placeholder="E-mail">
+                                        <input class="form-control valid" name="email" id="email" type="email" placeholder="E-mail">
                                     </div>
                                 </div>
+
                                 <div class="col-12">
                                     <div class="form-group">
                                         
                                     
-<<<<<<< HEAD:bistro/contact.html
-                                        <select class="wide">
-                                            <option data-display="Almoço">Almoço</option>
-                                            <option value="2">Picanha avec farofa | R$ 60,00</option>
-=======
-                                        <select class="wide" name="id_produto">
+                                    <br><br>
+                                    <select class="wide" name="id_produto">
                                             <option data-display="Almoço">Almoço</option>
                                             <option value="1">Picanha avec farofa | R$ 60,00</option>
->>>>>>> yuri:bistro/contact.php
                                             <option value="2">Jarret rôti avec tutú aux haricots | R$ 55,00</option>
                                             <option value="3">Poulet strogonoff | R$ 20,00</option>
                                             <option value="4">Rouget en tranches avec bouillie de poisson | R$ 40,00</option>
                                             <option value="5">Poulet rôti | R$ 18,00</option>
                                             <option value="6">Riz et haricots | R$ 7,00</option>
-<<<<<<< HEAD:bistro/contact.html
-                                        </select>
-                                        <input type="number" id="quantidade" name="quantidade" min="1" max="10">
-                                        
-                                    
-                                    
-                                        <select class="wide">
-                                            <option data-display="Café da Manhã">Café da Manhã</option>
-                                            <option value="8">Pain chaud | R$ 5,00</option>
-=======
-                                        </select><br><br>
+                                        </select><br>
                                         <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
-                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5">
-                                        <br><br>
-
+                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5" >
+                                    <br><br>
                                     
                                     
                                         <select class="wide" name="id_produto">
                                             <option data-display="Café da Manhã">Café da Manhã</option>
                                             <option value="7">Pain chaud | R$ 5,00</option>
->>>>>>> yuri:bistro/contact.php
                                             <option value="8">Toast Petrópolis au parmesan | R$ 6,50</option>
                                             <option value="9">Pain avec saucisse | R$ 10,00</option>
                                             <option value="10">Pain aux oeufs | R$ 6,50</option>
                                             <option value="11">Pain au fromage | R$ 7,00</option>
                                             <option value="12">Gâteau à la semoule de maïs à la noix de coco | R$ 5,00</option>
-<<<<<<< HEAD:bistro/contact.html
-                                        </select>
-                                        <input type="number" id="quantidade" name="quantidade" min="1" max="10">
-                                        
-
-                                    
-                                        <select class="wide">
-                                            <option data-display ="Jantar">Jantar</option>
-                                            <option value="14">Poulet à la farine de manioc | R$ 20,00</option>
-=======
-                                        </select><br><br>
+                                        </select><br>
                                         <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
-                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5">
-                                        <br><br>
-                                        
+                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5" >
+                                    <br><br>
 
-                                    
+                                                                            
                                         <select class="wide" name="id_produto">
                                             <option data-display="Jantar">Jantar</option>
                                             <option value="13">Poulet à la farine de manioc | R$ 20,00</option>
->>>>>>> yuri:bistro/contact.php
                                             <option value="14">Presunto de parma caneloni e mussarela búfala | R$ 68,00 + R$ 1,00</option>
                                             <option value="15">Lasagnes normales du dimanche - C'est pour applaudir debout! | R$ 25,00</option>
                                             <option value="16">Crêpe fou - Crêpe avec de la glace et un morceau de kiwi | R$ 13,00</option>
                                             <option value="17">Burger Cury | R$ 18,00</option>
                                             <option value="18">Gros Pourri | R$ 15,00</option>
-<<<<<<< HEAD:bistro/contact.html
-                                        </select>
-                                        <input type="number" id="quantidade" name="quantidade" min="1" max="10">
-                                        
-                                        <br>
-                                    
-=======
-                                        </select><br><br>
+
+                                        </select><br>
                                         <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
-                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5">
->>>>>>> yuri:bistro/contact.php
-
-
-                                    </div>
+                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5" >
+                                    <br><br>
+                                   
+                                   </div>
 
 
                                     
                                 </div>
                               <div class="col-6">
                                     <div class="form-group">
-                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="6" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Algum comentário? Ex: Sem cebola...'" placeholder=" Algum comentário? Ex: Sem cebola... "></textarea>
+                                        <textarea class="form-control w-100" name="mensagem" id="mensagem" cols="30" rows="6"  placeholder=" Algum comentário? Ex: Sem cebola... "></textarea>
                                     </div>
                                 </div>
 
