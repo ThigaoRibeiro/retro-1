@@ -1,3 +1,6 @@
+<?php
+   session_start();
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -33,6 +36,7 @@
         <![endif]-->
 
     <!-- header-start -->
+
     <header>
         <div class="header-area ">
             <div id="sticky-header" class="main-header-area">
@@ -234,10 +238,11 @@
             </div>
 
 <!-- ================ INÍCIO DA SEÇÃO DO CADASTRO ================= -->
+ 
+                <!-- ================ alterando recebedor_dados.php para cadastro.cliente.php================= -->
 
-            
 
-            <form method="POST" action="recebedor_de_dados.php">
+            <form method="POST" action="Cadastro_cliente.php">
             <div class="row no-gutters">
                 <div class="col-xl-6 col-lg-6">
                     <div class="map_area">
@@ -355,7 +360,20 @@
                             </div>
                             
                             <div class="col-xl-12">
-                                <button class="sumbit_btn" type="submit">Enviar!</button>
+                                <?php 
+                                    //inserindo mensagem de erro
+                                    if(isset( $_SESSION['msg'])){
+                                        echo  $_SESSION['msg'] ;
+                                        unset( $_SESSION['msg']);
+                                    };
+                                ?>
+                                <button name = "cadastro" class="sumbit_btn" type="submit"><?php 
+                                    if(isset( $_SESSION['msg'])){
+                                        echo  $_SESSION['msg'] ;
+                                        unset( $_SESSION['msg']);
+                                    }else{
+                                        echo "Enviar!";
+                                    }?></button>
                             </div>
                         </form>
                         
