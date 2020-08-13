@@ -1,6 +1,6 @@
 <?php
     //session_start();
-    require_once __DIR__.'/Source/BD/Databases.php';
+    require_once __DIR__."/CRUD/Databases.php";
     
   
 
@@ -16,17 +16,23 @@
             $nome1 = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
             $email1 = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
             $cpf1 = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_STRING);
-                   
+
+                          
             $sql_func ="INSERT INTO cliente(nome, email, cpf) VALUES (:n,:e,:c)";
  
             $resp_f = $pdo->prepare($sql_func);
-          
+            if(!empty($nome1)){
+
+            
+
+        
             $resp_f->bindValue(":n", $nome1);
             $resp_f->bindValue(":e", $email1);
             $resp_f->bindValue(":c", $cpf1);
             $resp_f->execute();
-            var_dump($nome1, $email1, $cpf1);
-            var_dump($resp_f);
+            }else{
+              header("Location: cadastro.php");
+            }
          
           //$pdo->prepare($sql_func)->execute([$nome1, $email1, $cpf1]);
       //------------------------PEGANDO O ULTIMO ID INSERIDO----------------------------------------

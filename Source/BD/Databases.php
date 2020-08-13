@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__.'/autoload.php';
 /* CONEXAO 01
     class Banco{
         public $pdo;
@@ -38,9 +38,8 @@
  //CONEXAO 02
 
     try{
-        $pdo = new PDO("mysql:host=localhost;dbname=retro_db",
-            "yuri",
-            "7q5eb6eb@#",
+        $pdo = new PDO("mysql:host=localhost;db_retro",
+            
             [
                 PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
                 PDO::ATTR_CASE => PDO::CASE_NATURAL
