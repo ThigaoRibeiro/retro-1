@@ -80,11 +80,14 @@
       $sql_func_telefone="INSERT INTO  clie_telefone (clie_id, tel_01)
       VALUES(:clie, :t)";
 
+        if(!empty($telefone1)){
         $resp_telefone =$pdo->prepare($sql_func_telefone);
         $resp_telefone->bindValue(":clie", $ultimo_id);
         $resp_telefone->bindValue(":t", $telefone1);
         $resp_telefone->execute();
+        }
 
+        
 
       //$pdo->prepare($sql_func_telefone)->execute([$ultimo_id, $telefone1]);
 

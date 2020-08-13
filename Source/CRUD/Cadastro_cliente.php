@@ -95,8 +95,12 @@
          //}
 
   
-
- 
+         $filename = '../../bistro/contact.php';
+         if (file_exists($filename)){
+             header('Location: ../../bistro/contact.php ');
+         }else{
+           echo "<h4>Pagina de Pedidos não encontrada</h4>";
+         }
 
      
             //-----------------------------------MENSAGEM DE ERRO --------------------------------------------
