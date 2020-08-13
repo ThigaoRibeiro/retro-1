@@ -46,6 +46,7 @@
                 PDO::ATTR_CASE => PDO::CASE_NATURAL
             ]);
         $pdo->setAttribute(   PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  
 
         //dbname = nome do banco dedados
         //host = endereço do servidor

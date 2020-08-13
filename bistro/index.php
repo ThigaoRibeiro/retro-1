@@ -1,3 +1,6 @@
+<?php
+    require 'vendor/autoload.php';
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 

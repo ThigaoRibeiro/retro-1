@@ -1,12 +1,12 @@
 {
     "sqltools.connections": [
         {
-            "database": "retro_db",
+            "database": "db_retro",
             "driver": "MariaDB",
             "mysqlOptions": {
                 "authProtocol": "default"
             },
-            "name": "retro",
+            "name": "db_retro",
             "password": "7q5eb6eb@#",
             "port": 3306,
             "previewLimit": 50,
