@@ -157,7 +157,7 @@
 
                         <!-- ================ INCÍCIO DO FORMULÁRIO DO PEDIDO ================= -->
 
-                        <form action="recebedor_de_dados.php" method="POST"> 
+                        <form action="../Source/CRUD/Cadastro_pedido.php" method="POST"> 
                             
                         <div class="row">
                                 
