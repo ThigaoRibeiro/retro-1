@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 08/08/2020 às 23:48
+-- Tempo de geração: 14/08/2020 às 14:47
 -- Versão do servidor: 10.1.44-MariaDB-0ubuntu0.18.04.1
 -- Versão do PHP: 7.4.7
 
@@ -31,15 +31,15 @@ CREATE TABLE `cliente` (
   `clie_id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `cpf` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `cpf` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `cliente`
 --
 
 INSERT INTO `cliente` (`clie_id`, `nome`, `email`, `cpf`) VALUES
-(1, 'Junior do Carlos', 'junior.carlos@gmail.com.br', '15698571865');
+(1, 'yuri do monte', 'yuri.spm@gmail.com', '854984125698');
 
 -- --------------------------------------------------------
 
@@ -54,7 +54,7 @@ CREATE TABLE `clie_endereco` (
   `complemento` varchar(100) NOT NULL,
   `bairro` varchar(100) NOT NULL,
   `cidade` varchar(100) NOT NULL,
-  `cep` varchar(100) NOT NULL,
+  `cep` varchar(30) NOT NULL,
   `referencia` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -63,7 +63,7 @@ CREATE TABLE `clie_endereco` (
 --
 
 INSERT INTO `clie_endereco` (`endereco_id`, `clie_id`, `rua`, `complemento`, `bairro`, `cidade`, `cep`, `referencia`) VALUES
-(1, 1, 'Rua Augusto Braga', 'casa', 'Madureira', 'Rio de Janeiro', '21258782', 'Perto do Posto Shell');
+(1, 1, 'endereco', 'complemento', 'bairro', 'cidade', 'cep', 'ponto referencia');
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ CREATE TABLE `clie_telefone` (
 --
 
 INSERT INTO `clie_telefone` (`telefone_id`, `clie_id`, `tel_01`) VALUES
-(1, 1, '021952695489');
+(1, 1, '234234234');
 
 -- --------------------------------------------------------
 
@@ -162,17 +162,13 @@ CREATE TABLE `pedido` (
   `func_id` int(11) NOT NULL,
   `data_pedido` date NOT NULL,
   `total` int(11) NOT NULL,
-  `desconto` int(11) DEFAULT NULL,
+  `desconto` varchar(100) DEFAULT NULL,
   `quantidade` int(11) NOT NULL,
-  `produto_id` int(11) NOT NULL
+  `produto1_id` int(11) NOT NULL,
+  `produto2_id` int(11) DEFAULT NULL,
+  `produto3_id` int(11) DEFAULT NULL,
+  `observacao` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Despejando dados para a tabela `pedido`
---
-
-INSERT INTO `pedido` (`pedido_id`, `clie_id`, `func_id`, `data_pedido`, `total`, `desconto`, `quantidade`, `produto_id`) VALUES
-(1, 1, 1, '2008-08-20', 55, NULL, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -183,7 +179,7 @@ INSERT INTO `pedido` (`pedido_id`, `clie_id`, `func_id`, `data_pedido`, `total`,
 CREATE TABLE `produto` (
   `produto_id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `valor` varchar(20) NOT NULL
+  `valor` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -224,14 +220,14 @@ ALTER TABLE `cliente`
 --
 ALTER TABLE `clie_endereco`
   ADD PRIMARY KEY (`endereco_id`),
-  ADD KEY `fk_endereco_clie_id` (`clie_id`);
+  ADD KEY `fk_clie_id` (`clie_id`);
 
 --
 -- Índices de tabela `clie_telefone`
 --
 ALTER TABLE `clie_telefone`
   ADD PRIMARY KEY (`telefone_id`),
-  ADD KEY `fk_telefone_clie_id` (`clie_id`) USING BTREE;
+  ADD KEY `fk_telefone_clie_id` (`clie_id`);
 
 --
 -- Índices de tabela `funcionario`
@@ -250,7 +246,6 @@ ALTER TABLE `func_endereco`
 -- Índices de tabela `func_telefone`
 --
 ALTER TABLE `func_telefone`
-  ADD PRIMARY KEY (`telefone_id`),
   ADD KEY `fk_telefone_func_id` (`func_id`);
 
 --
@@ -258,9 +253,9 @@ ALTER TABLE `func_telefone`
 --
 ALTER TABLE `pedido`
   ADD PRIMARY KEY (`pedido_id`),
-  ADD KEY `fk_pedido_clie_id` (`clie_id`),
-  ADD KEY `fk_pedido_func_id` (`func_id`),
-  ADD KEY `fk_pedido_produto_id` (`produto_id`);
+  ADD KEY `fk_pedido_produto1` (`produto1_id`),
+  ADD KEY `fk_pedido_produto2` (`produto2_id`),
+  ADD KEY `fk_pedido_produto3` (`produto3_id`);
 
 --
 -- Índices de tabela `produto`
@@ -303,16 +298,10 @@ ALTER TABLE `func_endereco`
   MODIFY `endereco_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de tabela `func_telefone`
---
-ALTER TABLE `func_telefone`
-  MODIFY `telefone_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT de tabela `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `pedido_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `pedido_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
@@ -328,13 +317,13 @@ ALTER TABLE `produto`
 -- Restrições para tabelas `clie_endereco`
 --
 ALTER TABLE `clie_endereco`
-  ADD CONSTRAINT `fk_endereco_clie_id` FOREIGN KEY (`clie_id`) REFERENCES `cliente` (`clie_id`);
+  ADD CONSTRAINT `fk_clie_id` FOREIGN KEY (`clie_id`) REFERENCES `cliente` (`clie_id`);
 
 --
 -- Restrições para tabelas `clie_telefone`
 --
 ALTER TABLE `clie_telefone`
-  ADD CONSTRAINT `fk_clie_id` FOREIGN KEY (`clie_id`) REFERENCES `cliente` (`clie_id`);
+  ADD CONSTRAINT `fk_telefone_clie_id` FOREIGN KEY (`clie_id`) REFERENCES `cliente` (`clie_id`);
 
 --
 -- Restrições para tabelas `func_endereco`
@@ -352,9 +341,9 @@ ALTER TABLE `func_telefone`
 -- Restrições para tabelas `pedido`
 --
 ALTER TABLE `pedido`
-  ADD CONSTRAINT `fk_pedido_clie_id` FOREIGN KEY (`clie_id`) REFERENCES `cliente` (`clie_id`),
-  ADD CONSTRAINT `fk_pedido_func_id` FOREIGN KEY (`func_id`) REFERENCES `funcionario` (`func_id`),
-  ADD CONSTRAINT `fk_pedido_produto_id` FOREIGN KEY (`produto_id`) REFERENCES `produto` (`produto_id`);
+  ADD CONSTRAINT `fk_pedido_produto1` FOREIGN KEY (`produto1_id`) REFERENCES `produto` (`produto_id`),
+  ADD CONSTRAINT `fk_pedido_produto2` FOREIGN KEY (`produto2_id`) REFERENCES `produto` (`produto_id`),
+  ADD CONSTRAINT `fk_pedido_produto3` FOREIGN KEY (`produto3_id`) REFERENCES `produto` (`produto_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -73,7 +73,7 @@
       //$pdo->prepare($sql_func_endereco)->execute([$ultimo_id, $rua1, $complemento1, $bairro1, $cidade1, $cep1, $referencia1]);
      
 
-      //------------------------CADASTRO TELEFONE FUNCIONARIO---------------------------------------
+      //------------------------CADASTRO TELEFONE CLIENTE---------------------------------------
       $telefone1 = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_STRING);
       $sql_func_telefone="INSERT INTO  clie_telefone (clie_id, tel_01)
       VALUES(:clie, :t)";
