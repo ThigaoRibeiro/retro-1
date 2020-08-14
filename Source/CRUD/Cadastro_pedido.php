@@ -43,7 +43,11 @@
             header('Location: ../../bistro/cadastro.php ');
       }
 
+	var_dump(
+		$produto_id,
+		$quantidade
 
+	);
 
      
 
