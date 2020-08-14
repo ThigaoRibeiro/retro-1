@@ -34,7 +34,9 @@
             $cad_pedido->bindValue(":d", $data_pedido);
             $cad_pedido->bindValue(":t", $total);
             $cad_pedido->bindValue("q", $quantidade);
-            $cad_pedido->bindValue(":p", $produto_id);
+            $cad_pedido->bindValue(":p", $produto1_id);
+            $cad_pedido->bindValue(":p", $produto2_id);
+            $cad_pedido->bindValue(":p", $produto3_id);
 
             $cad_pedido->execute();
       }else{
