@@ -178,7 +178,7 @@
                                         
                                     
                                     <br><br>
-                                    <select class="wide" name="id_produto">
+                                    <select class="wide" name="produto_id">
                                             <option data-display="Almoço">Almoço</option>
                                             <option value="1">Picanha avec farofa | R$ 60,00</option>
                                             <option value="2">Jarret rôti avec tutú aux haricots | R$ 55,00</option>
@@ -189,10 +189,10 @@
                                         </select><br>
                                         <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
                                         <input type="number" id="quantidade" name="quantidade" min="1" max="5" >
-                                    <br><br>
                                     
                                     
-                                        <select class="wide" name="id_produto">
+										<br><br>
+                                        <select class="wide" name="produto_id">
                                             <option data-display="Café da Manhã">Café da Manhã</option>
                                             <option value="7">Pain chaud | R$ 5,00</option>
                                             <option value="8">Toast Petrópolis au parmesan | R$ 6,50</option>
@@ -203,10 +203,10 @@
                                         </select><br>
                                         <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
                                         <input type="number" id="quantidade" name="quantidade" min="1" max="5" >
-                                    <br><br>
+                                    
 
-                                                                            
-                                        <select class="wide" name="id_produto">
+										<br><br>											
+                                        <select class="wide" name="produto_id">
                                             <option data-display="Jantar">Jantar</option>
                                             <option value="13">Poulet à la farine de manioc | R$ 20,00</option>
                                             <option value="14">Presunto de parma caneloni e mussarela búfala | R$ 68,00 + R$ 1,00</option>
