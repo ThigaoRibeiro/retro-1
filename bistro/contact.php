@@ -178,7 +178,7 @@
                                         
                                     
                                     <br><br>
-                                    <select class="wide" name="produto_id">
+                                    <select class="wide" name="produto1_id">
                                             <option data-display="Almoço">Almoço</option>
                                             <option value="1">Picanha avec farofa | R$ 60,00</option>
                                             <option value="2">Jarret rôti avec tutú aux haricots | R$ 55,00</option>
@@ -188,11 +188,11 @@
                                             <option value="6">Riz et haricots | R$ 7,00</option>
                                         </select><br>
                                         <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
-                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5" >
+                                        <input type="number" id="quantidade1" name="quantidade1" min="1" max="5" >
                                     
                                     
 										<br><br>
-                                        <select class="wide" name="produto_id">
+                                        <select class="wide" name="produto2_id">
                                             <option data-display="Café da Manhã">Café da Manhã</option>
                                             <option value="7">Pain chaud | R$ 5,00</option>
                                             <option value="8">Toast Petrópolis au parmesan | R$ 6,50</option>
@@ -202,11 +202,11 @@
                                             <option value="12">Gâteau à la semoule de maïs à la noix de coco | R$ 5,00</option>
                                         </select><br>
                                         <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
-                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5" >
+                                        <input type="number" id="quantidade2" name="quantidade2" min="1" max="5" >
                                     
 
 										<br><br>											
-                                        <select class="wide" name="produto_id">
+                                        <select class="wide" name="produto3_id">
                                             <option data-display="Jantar">Jantar</option>
                                             <option value="13">Poulet à la farine de manioc | R$ 20,00</option>
                                             <option value="14">Presunto de parma caneloni e mussarela búfala | R$ 68,00 + R$ 1,00</option>
@@ -217,7 +217,7 @@
 
                                         </select><br>
                                         <label for="quantidade">Quantidade (escolha 1 até 5 porções):</label>
-                                        <input type="number" id="quantidade" name="quantidade" min="1" max="5" >
+                                        <input type="number" id="quantidade3" name="quantidade3" min="1" max="5" >
                                     <br><br>
                                    
                                    </div>
