@@ -22,7 +22,7 @@ class Endereco
      * @param $cep
      * @param $pontoReferencia
      */
-    public function __construct($rua, $complemento, $bairro, $cidade, $cep, $pontoReferencia)
+    public function __construct($rua, $complemento, $bairro, $cidade, $cep, $pontoReferencia = null)
     {
         $this->rua = $rua;
         $this->complemento = $complemento;
