@@ -6,8 +6,9 @@
       
       $nome1 = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
       $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
+      $msg = filter_input(INPUT_POST,'mensagem', FILTER_SANITIZE_STRING);
       
-      
+      $data_pedido = date("y/m/Y");
       $total = 0;
       //---------------------------------------VERIFICANDO CLIENTE E E-MAIL---------------------------------------------------------
             $sql_func_email = 'SELECT clie_id, email, nome FROM cliente WHERE email = :e';
@@ -18,6 +19,7 @@
             $row = $resp_f->fetch();
             $cad_email = $row['email'];
             $cad_cliente = $row['nome'];
+            $cad_id = $row['clie_id'];
             /*
             var_dump(
                   $cad_cliente,
@@ -114,11 +116,57 @@
             $total += $valor3 * $quantidade3;
             
       }
+      $quantidade_t = $quantidade1 + $quantidade2 + $quantidade3;
+      echo number_format($total,2, ',', '.');
+      echo "</br>".$msg;
+      //----------------------------------PEDIDO----------------------------
+      try{
+     $sql_pedido1 = "INSERT INTO pedido(
+       clie_id,
+       func_id,
+       data_pedido,
+       total,
+       quantidade,
+       produto1_id,
+       produto2_id,
+       produto3_id,
+       observacao ) VALUES  (:c, :f, :d, :t, :q, :p1, :p2, :p3, :o)";
 
-      echo $total;
-      //----------------------------------CARRINHO DE COMPRAS ----------------------------
+       $pedido1 = $pdo->prepare($sql_pedido1);
+       $pedido1 -> bindValue(":c", $cad_id);
+       $pedido1 -> bindValue(":f", 1);
+       $pedido1 -> bindValue(":d", $data_pedido);
+       $pedido1 -> bindValue(":t", $total);
+       $pedido1 -> bindValue(":q", $quantidade_t);
+       $pedido1 -> bindValue(":p1", $produto1_id);
+       $pedido1 -> bindValue(":p2", $produto2_id);
+       $pedido1 -> bindValue(":p3", $produto3_id);
+       $pedido1 -> bindValue(":o", $msg);
+       $pedido1-> execute();
+      }catch(PDOException $erro){
+            echo $e;
+      }
+       
 
+
+/*
+      $sql_pedido2 = "INSERT INTO pedido(clie_id,
+      func_id,
+      data_pedido,
+      total,
+      quantidade,
+      produto1_id,
+      produto2_id
+    
+      observacao ) VALUES  (:c, :f, :d, :q, :p1, :p2, :o)";  
+
+            
+      $sql_pedido3 = "INSERT INTO pedido(clie_id,
+      func_id,
+      data_pedido,
+      total,
+      quantidade,
+      produto1_id,
      
-
       
-  
+      observacao ) VALUES  (:c, :f, :d, :q, :p1, :o)";
