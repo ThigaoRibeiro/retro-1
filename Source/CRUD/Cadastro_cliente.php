@@ -1,6 +1,8 @@
 <?php
     //session_start();
     require_once '../BD/Databases.php';
+    require_once '../Classes/Pessoa.php';
+    require_once '../Classes/Endereco.php';
     
   
     
@@ -13,8 +15,8 @@
     try{     
         
          //----------------------CADASTRO NOME E EMAIL DO FUNCIONARIO------------------------------------------
-         //$cadastro = filter_input(INPUT_POST , 'cadastro', FILTER_SANITIZE_STRING);
-         //if($cadastro){
+         $cadastro = filter_input(INPUT_POST , 'cadastro', FILTER_SANITIZE_STRING);
+         if($cadastro){
             $nome1 = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
             $email1 = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
             $cpf1 = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_STRING);
@@ -22,18 +24,18 @@
                           
             $sql_func ="INSERT INTO cliente(nome, email, cpf) VALUES (:n,:e,:c)";
  
-            $resp_f = $pdo->prepare($sql_func);
-            if(!empty($nome1)){
+          $resp_f = $pdo->prepare($sql_func);
+        if(!empty($nome1)){
                    
             $resp_f->bindValue(":n", $nome1);
             $resp_f->bindValue(":e", $email1);
             $resp_f->bindValue(":c", $cpf1);
             $resp_f->execute();
             }else{
-              header("Location: cadastro.php");
+             header("Location: cadastro.php");
             }
          
-          //$pdo->prepare($sql_func)->execute([$nome1, $email1, $cpf1]);
+          $pdo->prepare($sql_func)->execute([$nome1, $email1, $cpf1]);
       //------------------------PEGANDO O ULTIMO ID INSERIDO----------------------------------------
            
        $sql = "SELECT * FROM cliente ORDER BY clie_id DESC";
@@ -50,8 +52,8 @@
       $referencia1 =  filter_input(INPUT_POST, 'pontoReferencia', FILTER_SANITIZE_STRING);
       $cep1 = filter_input(INPUT_POST, 'cep', FILTER_SANITIZE_STRING);
      
-      $sql_func_endereco="INSERT INTO  clie_endereco (clie_id, rua,  complemento, bairro, cidade, cep, referencia)
-      VALUES(:clie, :r, :co, :b, :c, :ce, :re)";
+    $sql_func_endereco="INSERT INTO  clie_endereco (clie_id, rua,  complemento, bairro, cidade, cep, referencia)
+  VALUES(:clie, :r, :co, :b, :c, :ce, :re)";
 
       $resp_endereco =$pdo->prepare($sql_func_endereco);
 
@@ -70,7 +72,7 @@
  
 
          
-      //$pdo->prepare($sql_func_endereco)->execute([$ultimo_id, $rua1, $complemento1, $bairro1, $cidade1, $cep1, $referencia1]);
+      $pdo->prepare($sql_func_endereco)->execute([$ultimo_id, $rua1, $complemento1, $bairro1, $cidade1, $cep1, $referencia1]);
      
 
       //------------------------CADASTRO TELEFONE CLIENTE---------------------------------------
@@ -84,15 +86,15 @@
         $resp_telefone->execute();
 
 
-      //$pdo->prepare($sql_func_telefone)->execute([$ultimo_id, $telefone1]);
+      $pdo->prepare($sql_func_telefone)->execute([$ultimo_id, $telefone1]);
 
 
   
 
-        // }else{
-          //   $_SESSION['msg'] = "<p style= 'color: red;'>MENSAGEM NÃO FOI ENVIADA</p>";
-          //    header("Location: cadastro.php");
-         //}
+         }else{
+           $_SESSION['msg'] = "<p style= 'color: red;'>MENSAGEM NÃO FOI ENVIADA</p>";
+              header("Location: cadastro.php");
+         }
 
   
          $filename = '../../bistro/contact.php';
@@ -103,13 +105,21 @@
          }
 
      
-            //-----------------------------------MENSAGEM DE ERRO --------------------------------------------
-    }catch(PDOException $erro){
-        var_dump($erro);
-    }catch(Exception $execption){
+  //-----------------------------------MENSAGEM DE ERRO --------------------------------------------
+}catch(PDOException $erro){
+  var_dump($erro);
+}catch(Exception $execption){
         var_dump($execption);
     }
 
-
-
+//-----------------------------------MENSAGEM DE ERRO --------------------------------------------
+    //$pessoa = new Pessoa(
+      //$cpf1,
+      //$nome1,
+      //$email1,
+      //$telefone1
+      //);
+    
+    //var_dump($pessoa);
    
+
