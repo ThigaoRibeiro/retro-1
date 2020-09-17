@@ -20,21 +20,8 @@ class Pessoa
         $this->cpf = filter_var($cpf, FILTER_SANITIZE_STRIPPED);
         $this->nome = filter_var($nome, FILTER_SANITIZE_STRIPPED);
         $this->telefone = filter_var($telefone, FILTER_SANITIZE_STRIPPED);
-<<<<<<< HEAD:Source/Classes/Pessoa.php
         $this->email = filter_var($email, FILTER_VALIDATE_EMAIL);
         }
-=======
-        $this->endereco = filter_var($endereco, FILTER_SANITIZE_STRIPPED);        
-    }
-
-    public function setEmail ($email)
-    {
-        $this->email = $email;
-        //$this->telefone = $telefone;
-        //$this->endereco = $endereco;
-       // $this->pontoReferencia = $pontoReferencia;
-    }
->>>>>>> yuri:source/Classes/Pessoa.php
 
     
     /**
