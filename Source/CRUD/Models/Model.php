@@ -59,4 +59,16 @@ use Source\Database\Connect;
     {
         
     }
+    
+    protected function safe(): ?array
+    {
+        
+    }
+
+    private function filter()
+    {
+
+    }
+
  }
+
