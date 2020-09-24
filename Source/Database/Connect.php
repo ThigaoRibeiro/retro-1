@@ -35,7 +35,11 @@ class Connect{
                     self::PASSWD,
                     self::OPTION
                 );
+<<<<<<< HEAD
                 //echo "<p class='acept'>Conectado com sucesso</p>";
+=======
+                echo "<p class='acept'>Conectado com sucesso</p>";
+>>>>>>> 34a492e643032ed77d6263f8243e319ae901a62c
             }catch(PDOException $execption){
                 die("<p class='alert alert-info'>Erro ao conectar</p>");
                 var_dump($execption);

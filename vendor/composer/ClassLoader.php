@@ -60,7 +60,11 @@ class ClassLoader
     public function getPrefixes()
     {
         if (!empty($this->prefixesPsr0)) {
+<<<<<<< HEAD
             return call_user_func_array('array_merge', array_values($this->prefixesPsr0));
+=======
+            return call_user_func_array('array_merge', $this->prefixesPsr0);
+>>>>>>> 34a492e643032ed77d6263f8243e319ae901a62c
         }
 
         return array();
