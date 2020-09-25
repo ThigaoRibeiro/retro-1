@@ -29,8 +29,12 @@ use Source\Database\Connect;
     {
         return $this->data;
     }    
+    
+    /**
+     * @return \PDOException
+     */
 
-    public function fail(): \PDOException
+    public function fail()
     {
         return $this->fail;
     }    
@@ -40,12 +44,38 @@ use Source\Database\Connect;
         return $this->message;
     }  
 
+    public function __set($name, $value)
+    {
+        if(empty($this->data)){
+            $this->data =new \stdClass();
+        }
+        $this->data->$name = $value;
+    }
+
+      /**
+     * @param $name
+     * @return bool
+     */
+    public function __isset($name)
+    {
+        return isset($this->data->$name);
+    }
+
+    /**
+     * @param $name
+     * @return null
+     */
+    public function __get($name)
+    {
+        return ($this->data->$name ?? null);
+    }
+
     protected function create()
     {
 
     }
 
-     protected function read(string $select, string $params = null)
+     protected function read(string $select, string $params = null): ?\PDOStatement
      {
          try{
              $stmt = Connect::getInstance()->prepare($select);
@@ -61,7 +91,7 @@ use Source\Database\Connect;
              $stmt->execute();
              return $stmt;
 
-         }catch(PDOException  $exception){
+         }catch(\PDOException  $exception){
              $this->fail = $exception;
              return null;
          }
@@ -78,7 +108,7 @@ use Source\Database\Connect;
         
     }
     
-    protected function safe(): ?array
+    protected function safe()
     {
         
     }
