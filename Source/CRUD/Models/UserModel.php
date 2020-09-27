@@ -32,13 +32,27 @@ class UserModel extends Model
      */
     protected  static  $produto  = "produto ";
 
-
-    public  function  bootstrap()
+    /**
+     * @param $name
+     * @param $email
+     * @param $cpf
+     * @return $this
+     */
+    public  function  bootstrap($name, $email, $cpf)
     {
+        $this->name =$name;
+        $this->email =$email;
+        $this->cpf =$cpf;
 
+        return $this;
     }
 
-    public function loadCliente(int $id, string $columns = "*"): ?\Source\CRUD\Models\UserModel
+    /**
+     * @param int $id
+     * @param string $columns
+     * @return mixed|null
+     */
+    public function loadCliente(int $id, string $columns = "*")
     {
         $load = $this->read("SELECT {$columns} FROM " . self::$cliente . " WHERE clie_id = :id ", "id={$id}");
         if($this->fail() || !$load->rowCount()){
@@ -49,6 +63,11 @@ class UserModel extends Model
     
     }
 
+    /**
+     * @param $email
+     * @param string $columns
+     * @return mixed|null
+     */
     public  function find($email, $columns = "*")
     {
         $find = $this->read("SELECT {$columns} FROM " . self::$cliente . " WHERE email = :email ", "email={$email}");
@@ -60,7 +79,13 @@ class UserModel extends Model
     
     }
 
-    public  function all(int $limit = 30, int $offset =0, string $columns= "*")
+    /**
+     * @param int $limit
+     * @param int $offset
+     * @param string $columns
+     * @return array|null
+     */
+    public  function all(int $limit = 30, int $offset = 0, string $columns= "*")
     {
         $all = $this->read("SELECT {$columns} FROM " . self::$produto . " LIMIT :l OFFSET :o  ", "l={$limit}&o={$offset}");
         if($this->fail() || !$all->rowCount()){
@@ -71,9 +96,30 @@ class UserModel extends Model
     
     }
 
+    /**
+     * @return $this|null
+     */
     public  function save()
     {
+        /**  Client Update          */
+       if(!empty($this->id)){
+            $userId = $this->id;
+       }
 
+        /**  Client Create       */
+       if(empty($this->id)){
+            if($this->find($this->enail)){
+                $this->message = "O e-mail informado já foi cadastrado";
+                return null;
+            }
+            $userId = $this->create(self::$cliente, $this->safe());
+            if($this->fail()){
+                $this->message = "Erro ao cadastrar, verifique os dados";
+            }
+            $this->message = "Cadastro realizado com sucesso";
+       }
+       $this->data = $this->read("SELECT * FROM cliente WHERE clie_id =:id", "id={$userId}")->fetch();
+       return  $this;
     }
 
     public  function destroy()
@@ -81,7 +127,7 @@ class UserModel extends Model
 
     }
 
-    private function required()
+    protected function required()
     {
 
     }
