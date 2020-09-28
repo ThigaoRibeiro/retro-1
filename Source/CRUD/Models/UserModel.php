@@ -27,15 +27,10 @@ class UserModel extends Model
      */
     protected  static  $clie_endereco  = "clie_endereco ";
 
-        /**
-     * @var string $produto database table
-     */
-    protected  static  $produto  = "produto ";
 
-
-    public  function  bootstrap()
+    public  function  bootstrap(string $name, string $email, string $cpf)
     {
-
+        
     }
 
     public function loadCliente(int $id, string $columns = "*"): ?\Source\CRUD\Models\UserModel
@@ -62,7 +57,7 @@ class UserModel extends Model
 
     public  function all(int $limit = 30, int $offset =0, string $columns= "*")
     {
-        $all = $this->read("SELECT {$columns} FROM " . self::$produto . " LIMIT :l OFFSET :o  ", "l={$limit}&o={$offset}");
+        $all = $this->read("SELECT {$columns} FROM " . self::$cliente . " LIMIT :l OFFSET :o  ", "l={$limit}&o={$offset}");
         if($this->fail() || !$all->rowCount()){
             $this->message = "Sua consulta não retornou nenhum usuário.";
             return null;
