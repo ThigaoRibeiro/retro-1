@@ -25,8 +25,10 @@ use Source\Database\Connect;
      */
     protected $message;
 
-    public function data(): ?object
-    {
+     /**
+      * @return object|null
+      */
+    public function data(){
         return $this->data;
     }    
     
@@ -37,13 +39,21 @@ use Source\Database\Connect;
     public function fail()
     {
         return $this->fail;
-    }    
-    
-    public function message(): ?string
+    }
+
+     /**
+      * @return string|null
+      */
+
+    public function message()
     {
         return $this->message;
-    }  
+    }
 
+     /**
+      * @param $name
+      * @param $value
+      */
     public function __set($name, $value)
     {
         if(empty($this->data)){
@@ -70,12 +80,36 @@ use Source\Database\Connect;
         return ($this->data->$name ?? null);
     }
 
-    protected function create()
+     /**
+      * @param string $cliente
+      * @param array $data
+      * @return string
+      */
+    protected function create(string $cliente, array $data)
     {
+        try{
+            $columns = implode(", ", array_keys($data));
+            $values = ":" . implode(", :", array_keys($data)) ;
+           /* echo "INSERT INTO {$cliente} {$columns}  VALUES ({$values})";
+            */
+            $stmt = Connect::getInstance()->prepare("INSERT INTO {$cliente} ({$columns})  VALUES ({$values})");
+            var_dump($data);
+            //exit;
+            $stmt->execute($this->filter($data));
+            return Connect::getInstance()->lastInsertId();
+        }catch (\PDOException $exception){
+            $this->fail = $exception;
+        }
+        var_dump($cliente, $data);
 
     }
 
-     protected function read(string $select, string $params = null): ?\PDOStatement
+     /**
+      * @param string $select
+      * @param string|null $params
+      * @return bool|\PDOStatement|null
+      */
+     protected function read(string $select, string $params = null)
      {
          try{
              $stmt = Connect::getInstance()->prepare($select);
@@ -107,15 +141,30 @@ use Source\Database\Connect;
     {
         
     }
-    
+
+     /**
+      * @return array|null
+      */
     protected function safe()
     {
-        
+        $safe = (array) $this->data;
+        foreach (static::$safe as $unset) {
+           unset($safe[$unset]);
+        }
+        return $safe;
     }
 
-    private function filter()
+     /**
+      * @param array $data
+      * @return array|null
+      */
+    protected function filter(array  $data)
     {
-
+        $filter=[];
+        foreach ($data as $key => $value) {
+               $filter[$key] = (is_null($value) ? null : filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS));
+        }
+        return $filter;
     }
 
  }
