@@ -97,7 +97,7 @@ class UserModel extends Model
 
         /**  Client Create       */
        if(empty($this->id)){
-            if($this->find($this->enail)){
+            if($this->find($this->email)){
                 $this->message = "O e-mail informado já foi cadastrado";
                 return null;
             }

@@ -10,8 +10,8 @@ $model = new UserModel();
 
 
  $user = $model->bootstrap(
-    "Thiago Santos",
-    "thiago.santos@gmail.com",
+    "Gabriel Santos",
+    "gabriel.santos@gmail.com",
     "89745123"
 );
 
@@ -26,3 +26,5 @@ if(!$model->find($user->email)){
 var_dump(
     $user
 );
+
+
