@@ -93,8 +93,9 @@ use Source\Database\Connect;
            /* echo "INSERT INTO {$cliente} {$columns}  VALUES ({$values})";
             */
             $stmt = Connect::getInstance()->prepare("INSERT INTO {$cliente} ({$columns})  VALUES ({$values})");
-            var_dump($data);
+            var_dump($data, $this->filter($data));
             //exit;
+
             $stmt->execute($this->filter($data));
             return Connect::getInstance()->lastInsertId();
         }catch (\PDOException $exception){
