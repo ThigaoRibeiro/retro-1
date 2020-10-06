@@ -28,11 +28,18 @@ class UserModel extends Model
     protected  static  $clie_endereco  = "clie_endereco ";
 
 
-    public  function  bootstrap(string $nome, string $email, string $cpf)
+    public  function  bootstrap(string $nome, string $email, string $cpf, string $rua, string $complemento, string $bairro, string $cidade, string $cep, string $referencia, string $tel_01 )
     {
         $this->nome = $nome;
         $this->email = $email;
-        $this->cpf = $cpf;  
+        $this->cpf = $cpf;
+        $this->rua = $rua; 
+        $this->complemento = $complemento;
+        $this->bairro = $bairro;
+        $this->cidade = $cidade;
+        $this->cep = $cep;
+        $this->referemcia = $referencia;
+        $this->tel_01 = $tel_01;
         return $this; 
     }
 
@@ -105,6 +112,8 @@ class UserModel extends Model
             if($this->fail()){
                 $this->message = "Erro ao cadastrar, verifique os dados";
             }
+
+
             $this->message = "Cadastro realizado com sucesso";
        }
        $this->data = $this->read("SELECT * FROM cliente WHERE clie_id =:id", "id={$userId}")->fetch();

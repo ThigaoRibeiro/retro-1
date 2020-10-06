@@ -90,13 +90,16 @@ use Source\Database\Connect;
         try{
             $columns = implode(", ", array_keys($data));
             $values = ":" . implode(", :", array_keys($data)) ;
-           /* echo "INSERT INTO {$cliente} {$columns}  VALUES ({$values})";
-            */
+          // var_dump($values);
+          
             $stmt = Connect::getInstance()->prepare("INSERT INTO {$cliente} ({$columns})  VALUES ({$values})");
             var_dump($data);
-            //exit;
+           
             $stmt->execute($this->filter($data));
+            
             return Connect::getInstance()->lastInsertId();
+
+            
         }catch (\PDOException $exception){
             $this->fail = $exception;
         }
@@ -126,7 +129,7 @@ use Source\Database\Connect;
              return $stmt;
 
          }catch(\PDOException  $exception){
-             $this->fail = $exception;
+             $this->fail = $exception; 
              return null;
          }
      }

@@ -11,8 +11,15 @@ $model = new UserModel();
 
  $user = $model->bootstrap(
     "Gabriel Santos",
-    "gabriel.santos@gmail.com",
-    "89745123"
+    "gabriel.santos3@gmail.com",
+    "89745123",
+    "rua",
+    "complemento",
+    "bairo",
+    "cidade",
+    "cep",
+    "referencia",
+    "2356897859"
 );
 
 if(!$model->find($user->email)){
@@ -28,3 +35,21 @@ var_dump(
 );
 
 
+
+$nome = array(
+    "nome"=> "Yuri", 
+    "sobrenome1"=>"Santos", 
+    "sobrenome2"=>"Passos", 
+    "sobrenome3"=>"Monte"
+);
+
+//$key = implode(", ", array_keys($nome));
+$value = array_values(array_slice($nome, 0, 2));
+$values = ":" . implode(", :", array_values($value));
+
+var_dump(
+    $nome,
+   // $key,
+    $value,
+    $values    
+);
