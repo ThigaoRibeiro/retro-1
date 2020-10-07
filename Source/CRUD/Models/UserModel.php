@@ -9,23 +9,13 @@ class UserModel extends Model
      * @var array $safe no create or update
      */
 
-    protected static $safe = ["id", "endereco_id", "telefone_id"];
+    protected static $safe = ["id"];
 
     /**
      * @var string $cliente database table
      */
     protected  static  $cliente = "cliente";
 
-    /**
-     * @var string $clie_telefone database table
-     */
-    protected  static  $clie_telefone  = "clie_telefone ";
-
-
-    /**
-     * @var string $clie_endereco database table
-     */
-    protected  static  $clie_endereco  = "clie_endereco ";
 
 
     public  function  bootstrap(string $nome, string $email, string $cpf, string $rua, string $complemento, string $bairro, string $cidade, string $cep, string $referencia, string $tel_01 )

@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Source\\CRUD\\Models\\Model' => $baseDir . '/Source/CRUD/Models/Model.php',
+    'Source\\CRUD\\Models\\UserAddress' => $baseDir . '/Source/CRUD/Models/UserAddress.php',
     'Source\\CRUD\\Models\\UserModel' => $baseDir . '/Source/CRUD/Models/UserModel.php',
     'Source\\Classes\\Produto' => $baseDir . '/Source/Classes/Produto.php',
     'Source\\Database\\Connect' => $baseDir . '/Source/Database/Connect.php',
