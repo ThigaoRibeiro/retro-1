@@ -135,9 +135,27 @@ use Source\Database\Connect;
      }
 
 
-    protected function update()
+    protected function update(string $cliente, array $data, string $terms, string $params)
     {
-        
+        try{
+            $dataSet = [];
+            foreach ($data as $bind => $value){
+                $dataSet [] = "{$bind} = :{$bind}";
+            }
+            $dataSet = implode(", ", $dataSet);
+            parse_str($params, $params);
+            
+            $stmt = Connect::getInstance()->prepare("UPDATE $cliente SET {$dataSet} WHERE {$terms}") ;
+            $stmt->execute($this->filter (array_merge($data, $params)));
+            //var_dump($data);
+
+            return ($stmt->rowCount() ?? 1);
+
+        }catch(\PDOException  $exception){
+            $this->fail = $exception; 
+            return null;
+        }
+        var_dump($cliente, $data, $terms, $params);
     }
 
     protected function delete()

@@ -97,9 +97,24 @@ class UserModel extends Model
      */
     public  function save()
     {
+        if(!$this->required()){
+            return null;
+        }
         /**  Client Update          */
        if(!empty($this->id)){
             $userId = $this->id;
+            $email = $this->read("SELECT clie_id FROM cliente WHERE email =:email AND clie_id != :clie_id ",
+             "email={$this->email}&clie_id={$userId}");
+
+            if($email->rowCount()){
+                $this->message = "O e-mail informado já está cadastrado";
+                return null;
+            }
+            $this->update(self::$cliente, $this->safe(), "clie_id =: id", "clie_id={$userId}");
+            if($this->fail()){
+                $this->message = "Erro ao atualizar verifique o dados";
+            }
+            $this->message = "Dados Atualizados com sucesso.";
        }
 
         /**  Client Create       */
@@ -127,7 +142,15 @@ class UserModel extends Model
 
     protected function required()
     {
-
+        if(empty($this->nome) || empty($this->email)){
+            $this->message = "Nome e email são obrigatorios";
+            return false;
+        }
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
+            $this->message = "O e-mail informado não parece válido";
+            return false;
+        }
+        return true;
     }
 
 
