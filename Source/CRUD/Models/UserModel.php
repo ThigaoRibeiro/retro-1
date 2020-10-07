@@ -9,23 +9,14 @@ class UserModel extends Model
      * @var array $safe no create or update
      */
 
-    protected static $safe = ["id", "endereco_id", "telefone_id"];
+    protected static $safe = ["clie_id"];
 
     /**
      * @var string $cliente database table
      */
     protected  static  $cliente = "cliente";
 
-    /**
-     * @var string $clie_telefone database table
-     */
-    protected  static  $clie_telefone  = "clie_telefone ";
 
-
-    /**
-     * @var string $clie_endereco database table
-     */
-    protected  static  $clie_endereco  = "clie_endereco ";
 
 
     public  function  bootstrap(string $nome, string $email, string $cpf, string $rua, string $complemento, string $bairro, string $cidade, string $cep, string $referencia, string $tel_01 )
@@ -99,18 +90,20 @@ class UserModel extends Model
     {
         if(!$this->required()){
             return null;
+
         }
+
         /**  Client Update          */
        if(!empty($this->id)){
             $userId = $this->id;
-            $email = $this->read("SELECT clie_id FROM cliente WHERE email =:email AND clie_id != :clie_id ",
+            $email = $this->read("SELECT clie_id FROM cliente WHERE email = :email AND clie_id != :clie_id ",
              "email={$this->email}&clie_id={$userId}");
 
             if($email->rowCount()){
                 $this->message = "O e-mail informado já está cadastrado";
                 return null;
             }
-            $this->update(self::$cliente, $this->safe(), "clie_id =: id", "clie_id={$userId}");
+            $this->update(self::$cliente, $this->safe(), "clie_id =: clie_id", "clie_id={$userId}");
             if($this->fail()){
                 $this->message = "Erro ao atualizar verifique o dados";
             }

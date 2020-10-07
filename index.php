@@ -10,11 +10,12 @@ $model = new UserModel();
 
 $user = $model->loadCliente(1);
 
-$user->nome = "Daniel";
-$user->email = "daniel.santos@zamboni.com.br";
+$user->nome = "MARCOS";
+$user->email = "marcos.santos@gmail.com";
+$user->save();
 
 
 $user2 = $model->loadCliente(1);
 
 $user->save();
-var_dump($user);
+var_dump($user, $user2);
