@@ -94,27 +94,32 @@ class UserModel extends Model
         }
 
         /**  Client Update          */
-       if(!empty($this->id)){
-            $userId = $this->id;
+//        var_dump($this->clie_id);
+       if(!empty($this->clie_id)){
+            $userId = $this->clie_id;
             $email = $this->read("SELECT clie_id FROM cliente WHERE email = :email AND clie_id != :clie_id ",
              "email={$this->email}&clie_id={$userId}");
-
+//        var_dump($email->fetchObject(__CLASS__));
             if($email->rowCount()){
                 $this->message = "O e-mail informado já está cadastrado";
                 return null;
             }
-            $this->update(self::$cliente, $this->safe(), "clie_id =: clie_id", "clie_id={$userId}");
+            $this->update(self::$cliente, $this->safe(), "clie_id = :clie_id", "clie_id={$userId}");
             if($this->fail()){
                 $this->message = "Erro ao atualizar verifique o dados";
             }
             $this->message = "Dados Atualizados com sucesso.";
+
        }
 
         /**  Client Create       */
-       if(empty($this->id)){
+       if(empty($this->clie_id)){
             if($this->find($this->email)){
-                $this->message = "O e-mail informado já foi cadastrado";
+                $this->message = "O e-mail informado já foi cadastrado aqui";
+//                var_dump($this);
+////                exit;
                 return null;
+
             }
             $userId = $this->create(self::$cliente, $this->safe());
             if($this->fail()){

@@ -144,7 +144,9 @@ use Source\Database\Connect;
             }
             $dataSet = implode(", ", $dataSet);
             parse_str($params, $params);
-            
+//            var_dump($params, $cliente, $terms, $data, $dataSet);
+//            exit;
+//
             $stmt = Connect::getInstance()->prepare("UPDATE {$cliente} SET {$dataSet} WHERE {$terms}") ;
             $stmt->execute($this->filter (array_merge($data, $params)));
             //var_dump($data);
