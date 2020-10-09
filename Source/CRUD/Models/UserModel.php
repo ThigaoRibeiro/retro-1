@@ -80,10 +80,29 @@ class UserModel extends Model
      */
     public  function save()
     {
+        if(!$this->required()){
+            return null;
+
+        }
+
         /**  Client Update          */
-       if(!empty($this->id)){
-            $userId = $this->id;
-       }
+//        var_dump($this->clie_id);
+        if(!empty($this->clie_id)){
+            $userId = $this->clie_id;
+            $email = $this->read("SELECT clie_id FROM cliente WHERE email = :email AND clie_id != :clie_id ",
+                "email={$this->email}&clie_id={$userId}");
+//        var_dump($email->fetchObject(__CLASS__));
+            if($email->rowCount()){
+                $this->message = "O e-mail informado já está cadastrado";
+                return null;
+            }
+            $this->update(self::$cliente, $this->safe(), "clie_id = :clie_id", "clie_id={$userId}");
+            if($this->fail()){
+                $this->message = "Erro ao atualizar verifique o dados";
+            }
+            $this->message = "Dados Atualizados com sucesso.";
+
+        }
 
         /**  Client Create       */
        if(empty($this->id)){
