@@ -9,7 +9,7 @@ class UserModel extends Model
      * @var array $safe no create or update
      */
 
-    protected static $safe = ["id"];
+    protected static $safe = ["clie_id"];
 
     /**
      * @var string $cliente database table
@@ -18,12 +18,20 @@ class UserModel extends Model
 
 
 
-    public  function  bootstrap(string $nome, string $email, string $cpf)
+
+    public  function  bootstrap(string $nome, string $email, string $cpf, string $rua, string $complemento, string $bairro, string $cidade, string $cep, string $referencia, string $tel_01 )
     {
         $this->nome = $nome;
         $this->email = $email;
-        $this->cpf = $cpf;  
-        return $this; 
+        $this->cpf = $cpf;
+        $this->rua = $rua;
+        $this->complemento = $complemento;
+        $this->bairro = $bairro;
+        $this->cidade = $cidade;
+        $this->cep = $cep;
+        $this->referemcia = $referencia;
+        $this->tel_01 = $tel_01;
+        return $this;
     }
 
     /**
@@ -39,7 +47,7 @@ class UserModel extends Model
             return null;
         }
         return $load->fetchObject(__CLASS__);
-    
+
     }
 
     /**
@@ -55,7 +63,7 @@ class UserModel extends Model
             return null;
         }
         return $find->fetchObject(__CLASS__);
-    
+
     }
 
     /**
@@ -72,7 +80,7 @@ class UserModel extends Model
             return null;
         }
         return $all->fetchAll(\PDO::FETCH_CLASS, __CLASS__);
-    
+
     }
 
     /**
@@ -105,19 +113,24 @@ class UserModel extends Model
         }
 
         /**  Client Create       */
-       if(empty($this->id)){
+        if(empty($this->clie_id)){
             if($this->find($this->email)){
-                $this->message = "O e-mail informado já foi cadastrado";
+                $this->message = "O e-mail informado já foi cadastrado aqui";
+//                var_dump($this);
+////                exit;
                 return null;
+
             }
             $userId = $this->create(self::$cliente, $this->safe());
             if($this->fail()){
                 $this->message = "Erro ao cadastrar, verifique os dados";
             }
+
+
             $this->message = "Cadastro realizado com sucesso";
-       }
-       $this->data = $this->read("SELECT * FROM cliente WHERE clie_id =:id", "id={$userId}")->fetch();
-       return  $this;
+        }
+        $this->data = $this->read("SELECT * FROM cliente WHERE clie_id =:id", "id={$userId}")->fetch();
+        return  $this;
     }
 
     public  function destroy()
@@ -127,7 +140,16 @@ class UserModel extends Model
 
     protected function required()
     {
+        if(empty($this->nome) || empty($this->email)){
+            $this->message = "Nome e email são obrigatorios";
+            return false;
 
+        }
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
+            $this->message = "O e-mail informado não parece válido";
+            return false;
+        }
+        return true;
     }
 
 
