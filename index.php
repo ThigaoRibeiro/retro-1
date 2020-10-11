@@ -9,13 +9,5 @@ require_once 'vendor/autoload.php';
 $model = new UserModel();
 
 $user = $model->loadCliente(1);
-
-$user->nome = "MARCOS";
-$user->email = "marcos2.santos@gmail.com";
-$user->save();
-
-
-//$user2 = $model->loadCliente(1);
-//
-//$user->save();
+$user->destroy();
 var_dump($user);

@@ -135,7 +135,16 @@ class UserModel extends Model
 
     public  function destroy()
     {
-
+        if(!empty($this->clie_id)){
+//            var_dump($this->clie_id);
+            $this->delete(self::$cliente, "clie_id = :clie_id", "clie_id={$this->clie_id}");
+        }
+        if($this->fail()){
+            $this->message = "Não foi possível remover o cliente";
+         }
+        $this->message = "Cliente removeido com sucesso";
+//        $this->data = null;
+        return $this;
     }
 
     protected function required()

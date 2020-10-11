@@ -160,9 +160,21 @@ use Source\Database\Connect;
         var_dump($cliente, $data, $terms, $params);
     }
 
-    protected function delete()
+    protected function delete(string $cliente, string  $termns, string  $params)
     {
-        
+        try{
+            $stmt = Connect::getInstance()->prepare("DELETE FROM {$cliente}  WHERE {$termns}") ;
+            parse_str($params, $params);
+            $stmt->execute($params);
+            var_dump($stmt, $params);
+            return ($stmt->rowCount() ?? 1);
+
+        }catch(\PDOException  $exception){
+            $this->fail = $exception;
+            return null;
+        }
+        echo "DELETE FROM {$cliente}   WHERE {$termns}";
+        var_dump($cliente, $termns, $params);
     }
 
      /**
