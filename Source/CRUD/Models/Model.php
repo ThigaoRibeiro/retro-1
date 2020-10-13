@@ -173,6 +173,7 @@ use Source\Database\Connect;
            unset($safe[$unset]);
         }
         return $safe;
+
     }
 
      /**
@@ -190,3 +191,12 @@ use Source\Database\Connect;
 
  }
 
+
+ /**
+  * 
+  array data(
+      nome
+      email
+      cpf
+  )
+  */
