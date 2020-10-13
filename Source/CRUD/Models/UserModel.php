@@ -24,14 +24,14 @@ class UserModel extends Model
         $this->nome = $nome;
         $this->email = $email;
         $this->cpf = $cpf;
-        $this->rua = $rua; 
+        $this->rua = $rua;
         $this->complemento = $complemento;
         $this->bairro = $bairro;
         $this->cidade = $cidade;
         $this->cep = $cep;
         $this->referemcia = $referencia;
         $this->tel_01 = $tel_01;
-        return $this; 
+        return $this;
     }
 
     /**
@@ -47,7 +47,7 @@ class UserModel extends Model
             return null;
         }
         return $load->fetchObject(__CLASS__);
-    
+
     }
 
     /**
@@ -63,7 +63,7 @@ class UserModel extends Model
             return null;
         }
         return $find->fetchObject(__CLASS__);
-    
+
     }
 
     /**
@@ -80,7 +80,7 @@ class UserModel extends Model
             return null;
         }
         return $all->fetchAll(\PDO::FETCH_CLASS, __CLASS__);
-    
+
     }
 
     /**
@@ -94,27 +94,32 @@ class UserModel extends Model
         }
 
         /**  Client Update          */
-       if(!empty($this->id)){
-            $userId = $this->id;
+//        var_dump($this->clie_id);
+        if(!empty($this->clie_id)){
+            $userId = $this->clie_id;
             $email = $this->read("SELECT clie_id FROM cliente WHERE email = :email AND clie_id != :clie_id ",
-             "email={$this->email}&clie_id={$userId}");
-
+                "email={$this->email}&clie_id={$userId}");
+//        var_dump($email->fetchObject(__CLASS__));
             if($email->rowCount()){
                 $this->message = "O e-mail informado já está cadastrado";
                 return null;
             }
-            $this->update(self::$cliente, $this->safe(), "clie_id =: clie_id", "clie_id={$userId}");
+            $this->update(self::$cliente, $this->safe(), "clie_id = :clie_id", "clie_id={$userId}");
             if($this->fail()){
                 $this->message = "Erro ao atualizar verifique o dados";
             }
             $this->message = "Dados Atualizados com sucesso.";
-       }
+
+        }
 
         /**  Client Create       */
-       if(empty($this->id)){
+        if(empty($this->clie_id)){
             if($this->find($this->email)){
-                $this->message = "O e-mail informado já foi cadastrado";
+                $this->message = "O e-mail informado já foi cadastrado aqui";
+//                var_dump($this);
+////                exit;
                 return null;
+
             }
             $userId = $this->create(self::$cliente, $this->safe());
             if($this->fail()){
@@ -123,9 +128,9 @@ class UserModel extends Model
 
 
             $this->message = "Cadastro realizado com sucesso";
-       }
-       $this->data = $this->read("SELECT * FROM cliente WHERE clie_id =:id", "id={$userId}")->fetch();
-       return  $this;
+        }
+        $this->data = $this->read("SELECT * FROM cliente WHERE clie_id =:id", "id={$userId}")->fetch();
+        return  $this;
     }
 
     public  function destroy()
@@ -138,6 +143,7 @@ class UserModel extends Model
         if(empty($this->nome) || empty($this->email)){
             $this->message = "Nome e email são obrigatorios";
             return false;
+
         }
         if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
             $this->message = "O e-mail informado não parece válido";

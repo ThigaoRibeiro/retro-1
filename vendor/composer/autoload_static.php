@@ -22,6 +22,7 @@ class ComposerStaticInit53a63461113b60b56731345a7f18c1e2
 
     public static $classMap = array (
         'Source\\CRUD\\Models\\Model' => __DIR__ . '/../..' . '/Source/CRUD/Models/Model.php',
+        'Source\\CRUD\\Models\\UserAddress' => __DIR__ . '/../..' . '/Source/CRUD/Models/UserAddress.php',
         'Source\\CRUD\\Models\\UserModel' => __DIR__ . '/../..' . '/Source/CRUD/Models/UserModel.php',
         'Source\\Classes\\Produto' => __DIR__ . '/../..' . '/Source/Classes/Produto.php',
         'Source\\Database\\Connect' => __DIR__ . '/../..' . '/Source/Database/Connect.php',

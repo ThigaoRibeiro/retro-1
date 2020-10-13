@@ -8,12 +8,10 @@ require_once 'vendor/autoload.php';
 
 $model = new UserModel();
 
-$user3 = $model->loadCliente(2);
-$user3->nome= "Bruno";
-$user3->save();
+$user = $model->loadCliente(1 );
+$user->nome = "Daniel";
+$user->email = "";
+$user->save();
 
+var_dump($user);
 
-$user2 = $model->loadCliente(2);
-
-
-var_dump($user3, $user2);
