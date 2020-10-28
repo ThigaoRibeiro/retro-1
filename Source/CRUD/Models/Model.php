@@ -90,16 +90,14 @@ use Source\Database\Connect;
         try{
             $columns = implode(", ", array_keys($data));
             $values = ":" . implode(", :", array_keys($data)) ;
-          // var_dump($values);
-          
+           /* echo "INSERT INTO {$cliente} {$columns}  VALUES ({$values})";
+            */
             $stmt = Connect::getInstance()->prepare("INSERT INTO {$cliente} ({$columns})  VALUES ({$values})");
-            var_dump($data);
-           
-            $stmt->execute($this->filter($data));
-            
-            return Connect::getInstance()->lastInsertId();
+            var_dump($data, $this->filter($data));
+            //exit;
 
-            
+            $stmt->execute($this->filter($data));
+            return Connect::getInstance()->lastInsertId();
         }catch (\PDOException $exception){
             $this->fail = $exception;
         }
@@ -129,39 +127,54 @@ use Source\Database\Connect;
              return $stmt;
 
          }catch(\PDOException  $exception){
-             $this->fail = $exception; 
+             $this->fail = $exception;
              return null;
          }
      }
 
 
-    protected function update(string $cliente, array $data, string $terms, string $params)
-    {
-        try{
-            $dataSet = [];
-            foreach ($data as $bind => $value){
-                $dataSet [] = "{$bind} = :{$bind}";
-            }
-            $dataSet = implode(", ", $dataSet);
-            parse_str($params, $params);
-            
-            $stmt = Connect::getInstance()->prepare("UPDATE $cliente SET {$dataSet} WHERE {$terms}") ;
-            $stmt->execute($this->filter (array_merge($data, $params)));
-            //var_dump($data);
-
-            return ($stmt->rowCount() ?? 1);
-
-        }catch(\PDOException  $exception){
-            $this->fail = $exception; 
-            return null;
-        }
-        var_dump($cliente, $data, $terms, $params);
-    }
-
-    protected function delete()
-    {
-        
-    }
+     protected function update(string $cliente, array $data, string $terms, string $params)
+     {
+         try{
+             $dataSet = [];
+             foreach ($data as $bind => $value){
+                 $dataSet [] = "{$bind} = :{$bind}";
+             }
+             $dataSet = implode(", ", $dataSet);
+             parse_str($params, $params);
+ //            var_dump($params, $cliente, $terms, $data, $dataSet);
+ //            exit;
+ //
+             $stmt = Connect::getInstance()->prepare("UPDATE {$cliente} SET {$dataSet} WHERE {$terms}") ;
+             $stmt->execute($this->filter (array_merge($data, $params)));
+             //var_dump($data);
+ 
+             return ($stmt->rowCount() ?? 1);
+ 
+         }catch(\PDOException  $exception){
+             $this->fail = $exception; 
+             return null;
+         }
+         var_dump($cliente, $data, $terms, $params);
+     }
+ 
+     protected function delete(string $cliente, string  $termns, string  $params)
+     {
+         try{
+             $stmt = Connect::getInstance()->prepare("DELETE FROM {$cliente}  WHERE {$termns}") ;
+             parse_str($params, $params);
+             $stmt->execute($params);
+             var_dump($stmt, $params);
+             return ($stmt->rowCount() ?? 1);
+ 
+         }catch(\PDOException  $exception){
+             $this->fail = $exception;
+             return null;
+         }
+         echo "DELETE FROM {$cliente}   WHERE {$termns}";
+         var_dump($cliente, $termns, $params);
+     }
+ 
 
      /**
       * @return array|null

@@ -2,19 +2,14 @@
 
 
 use Source\CRUD\Models;
+use Source\CRUD\Models\UserAddress;
 use Source\CRUD\Models\UserModel;
 
 require_once 'vendor/autoload.php';
 
-$model = new UserModel();
+$model = new UserAddress();
 
-$user = $model->loadCliente(1);
-
-$user->nome = "Daniel";
-$user->email = "daniel.santos@zamboni.com.br";
-
-
-$user2 = $model->loadCliente(1);
-
-$user->save();
+$user = $model->loadEndereco(6);
 var_dump($user);
+
+
