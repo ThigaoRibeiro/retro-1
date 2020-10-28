@@ -98,7 +98,7 @@ class UserModel extends Model
         /** User Update */
         if (!empty($this->clie_id)) {
             $userId = $this->clie_id;
-            $email = $this->read("SELECT clie_id FROM clientes WHERE email = :email AND clie_id != :clie_id",
+            $email = $this->read("SELECT clie_id FROM cliente WHERE email = :email AND clie_id != :clie_id",
                 "email={$this->email}&clie_id={$userId}");
 
             if ($email->rowCount()) {

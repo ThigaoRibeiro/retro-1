@@ -144,6 +144,7 @@ use Source\Database\Connect;
              parse_str($params, $params);
  
              $stmt = Connect::getInstance()->prepare("UPDATE {$cliente} SET {$dateSet} WHERE {$terms}");
+            
              $stmt->execute($this->filter(array_merge($data, $params)));
              return ($stmt->rowCount() ?? 1);
          } catch (\PDOException $exception) {
@@ -187,14 +188,15 @@ use Source\Database\Connect;
       * @param array $data
       * @return array|null
       */
-    protected function filter(array  $data)
-    {
-        $filter=[];
-        foreach ($data as $key => $value) {
-               $filter[$key] = (is_null($value) ? null : filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS));
-        }
-        return $filter;
-    }
+      private function filter(array $data): ?array
+      {
+          $filter = [];
+          foreach ($data as $key => $value) {
+              $filter[$key] = (is_null($value) ? null : filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS));
+          }
+          return $filter;
+      }
+  }
 
- }
+ 
 

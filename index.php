@@ -8,20 +8,15 @@ require_once 'vendor/autoload.php';
 
 $model = new UserModel();
 
-$user = $model->bootstrap(
-    "Robson",
-    "Leite",
-    "djalma@gmail.com.br",
-    34892493349
-);
-
-if (!$model->find($user->email)) {
-    echo "<p class='trigger warning'>Cadastro</p>";
+$$user = $model->loadCliente(4);
+$user ->email = "gabriel2.santos@gmail.com";
+if ($user != $model->loadCliente(4)) {
     $user->save();
+    echo "<p class='trigger warning'>Atualizado!</p>";
 } else {
-    echo "<p class='trigger accept'>Read</p>";
-    $user = $model->find($user->email);
+    echo "<p class='trigger accept'>Já atualizado!</p>";
 }
+
 
 var_dump($user);
 
