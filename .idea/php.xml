@@ -5,4 +5,8 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
+<<<<<<< HEAD
+=======
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
+>>>>>>> c4f4895b2152d9680922a1d2029d3a31a5b8034f
 </project>

@@ -9,12 +9,13 @@ class UserModel extends Model
      * @var array $safe no create or update
      */
 
-    protected static $safe = ["id"];
+    protected static $safe = ["clie_id"];
 
     /**
      * @var string $cliente database table
      */
     protected  static  $cliente = "cliente";
+
 
 
 

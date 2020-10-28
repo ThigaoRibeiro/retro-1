@@ -11,7 +11,11 @@ use \PDOException;
 class Connect{
 
     private const HOST = "localhost";
+<<<<<<< HEAD
     private const USER = "phpmyadmin";
+=======
+    private const USER = "yuri";
+>>>>>>> c4f4895b2152d9680922a1d2029d3a31a5b8034f
     private const PASSWD = "7q5eb6eb@#";
     private const DBNAME = "db_retro";
     
