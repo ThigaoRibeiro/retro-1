@@ -12,6 +12,4 @@ if ($user) {
     $user->destroy();
 }
 
-
-
 var_dump($user);
