@@ -9,11 +9,7 @@ class UserModel extends Model
      * @var array $safe no create or update
      */
 
-<<<<<<< HEAD
     protected static $safe = ["id"];
-=======
-    protected static $safe = ["clie_id"];
->>>>>>> yuri
 
     /**
      * @var string $cliente database table
@@ -21,10 +17,6 @@ class UserModel extends Model
     protected  static  $cliente = "cliente";
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> yuri
 
     public  function  bootstrap(string $nome, string $email, string $cpf, string $rua, string $complemento, string $bairro, string $cidade, string $cep, string $referencia, string $tel_01 )
     {
