@@ -19,18 +19,18 @@ class UserModel extends Model
 
 
 
-    public  function  bootstrap(string $nome, string $email, string $cpf, string $rua, string $complemento, string $bairro, string $cidade, string $cep, string $referencia, string $tel_01 )
+    public  function  bootstrap(string $nome, string $email, string $cpf )
     {
         $this->nome = $nome;
         $this->email = $email;
         $this->cpf = $cpf;
-        $this->rua = $rua;
-        $this->complemento = $complemento;
-        $this->bairro = $bairro;
-        $this->cidade = $cidade;
-        $this->cep = $cep;
-        $this->referemcia = $referencia;
-        $this->tel_01 = $tel_01;
+        //$this->rua = $rua;
+        //$this->complemento = $complemento;
+        //$this->bairro = $bairro;
+        //$this->cidade = $cidade;
+        //$this->cep = $cep;
+        //$this->referemcia = $referencia;
+        //$this->tel_01 = $tel_01;
         return $this;
     }
 
@@ -41,6 +41,7 @@ class UserModel extends Model
      */
     public function loadCliente(int $clie_id, string $columns = "*")
     {
+        //select * from cliente where clie_id = 1
         $load = $this->read("SELECT {$columns} FROM " . self::$cliente . " WHERE clie_id = :clie_id", "clie_id={$clie_id}");
         //var_dump($load->fetch());
         
@@ -88,56 +89,61 @@ class UserModel extends Model
     /**
      * @return $this|null
      */
-    public  function save()
+    public function save(): ?UserModel
     {
-        if(!$this->required()){
+        if (!$this->required()) {
             return null;
-
         }
 
-        /**  Client Update          */
-//        var_dump($this->clie_id);
-        if(!empty($this->clie_id)){
+        /** User Update */
+        if (!empty($this->clie_id)) {
             $userId = $this->clie_id;
-            $email = $this->read("SELECT clie_id FROM cliente WHERE email = :email AND clie_id != :clie_id ",
+            $email = $this->read("SELECT clie_id FROM clientes WHERE email = :email AND clie_id != :clie_id",
                 "email={$this->email}&clie_id={$userId}");
-//        var_dump($email->fetchObject(__CLASS__));
-            if($email->rowCount()){
+
+            if ($email->rowCount()) {
                 $this->message = "O e-mail informado já está cadastrado";
                 return null;
             }
-            $this->update(self::$cliente, $this->safe(), "clie_id = :clie_id", "clie_id={$userId}");
-            if($this->fail()){
-                $this->message = "Erro ao atualizar verifique o dados";
-            }
-            $this->message = "Dados Atualizados com sucesso.";
 
+            $this->update(self::$cliente, $this->safe(), "clie_id = :clie_id", "clie_id={$userId}");
+            if ($this->fail()) {
+                $this->message = "Erro ao atualizar, verifique os dados";
+            }
+            $this->message = "Dados atualizados com sucesso";
         }
 
-        /**  Client Create       */
-        if(empty($this->clie_id)){
-            if($this->find($this->email)){
-                $this->message = "O e-mail informado já foi cadastrado aqui";
-//                var_dump($this);
-////                exit;
+        /** User Create */
+        if (empty($this->clie_id)) {
+            if ($this->find($this->email)) {
+                $this->message = "O e-mail informado já está cadastrado";
                 return null;
-
             }
+
             $userId = $this->create(self::$cliente, $this->safe());
-            if($this->fail()){
+            if ($this->fail()) {
                 $this->message = "Erro ao cadastrar, verifique os dados";
             }
-
-
             $this->message = "Cadastro realizado com sucesso";
         }
-        $this->data = $this->read("SELECT * FROM cliente WHERE clie_id =:id", "id={$userId}")->fetch();
-        return  $this;
+
+        $this->data = $this->read("SELECT * FROM cliente WHERE clie_id = :clie_id", "clie_id={$userId}")->fetch();
+        return $this;
     }
-
-    public  function destroy()
+    public function destroy(): ?UserModel
     {
+        if (!empty($this->clie_id)) {
+            $this->delete(self::$cliente, "clie_id = :clie_id", "clie_id={$this->clie_id}");
+        }
 
+        if ($this->fail()) {
+            $this->message = "Não foi possível remover o usuário";
+            return null;
+        }
+
+        $this->message = "Usuário removido com sucesso";
+        $this->data = null;
+        return $this;
     }
 
     protected function required()

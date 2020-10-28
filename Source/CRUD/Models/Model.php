@@ -133,15 +133,43 @@ use Source\Database\Connect;
      }
 
 
-    protected function update(string $cliente, array $string, string $terms, string  $params)
-    {
-       
-    }
-
-    protected function delete()
-    {
-        
-    }
+     protected function update(string $cliente, array $data, string $terms, string $params): ?int
+     {
+         try {
+             $dateSet = [];
+             foreach ($data as $bind => $value) {
+                 $dateSet[] = "{$bind} = :{$bind}";
+             }
+             $dateSet = implode(", ", $dateSet);
+             parse_str($params, $params);
+ 
+             $stmt = Connect::getInstance()->prepare("UPDATE {$cliente} SET {$dateSet} WHERE {$terms}");
+             $stmt->execute($this->filter(array_merge($data, $params)));
+             return ($stmt->rowCount() ?? 1);
+         } catch (\PDOException $exception) {
+             $this->fail = $exception;
+             return null;
+         }
+     }
+ 
+     /**
+      * @param string $entity
+      * @param string $terms
+      * @param string $params
+      * @return int|null
+      */
+     protected function delete(string $cliente, string $terms, string $params): ?int
+     {
+         try {
+             $stmt = Connect::getInstance()->prepare("DELETE FROM {$cliente} WHERE {$terms}");
+             parse_str($params, $params);
+             $stmt->execute($params);
+             return ($stmt->rowCount() ?? 1);
+         } catch (\PDOException $exception) {
+             $this->fail = $exception;
+             return null;
+         }
+     }
 
      /**
       * @return array|null
