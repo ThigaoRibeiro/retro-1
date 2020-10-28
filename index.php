@@ -9,7 +9,7 @@ require_once 'vendor/autoload.php';
 
 $model = new UserAddress();
 
-$user = $model->loadEndereco(6 );
+$user = $model->loadEndereco(6);
 var_dump($user);
 
 
