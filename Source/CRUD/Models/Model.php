@@ -197,6 +197,3 @@ use Source\Database\Connect;
           return $filter;
       }
   }
-
- 
-
